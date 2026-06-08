@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CABS – Blanka Slavíková | Cestovní Agentura</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--blue:#204790;--bd:#172f5e;--bm:#2a5aad;--red:#d94d3d;--rd:#b83c2e;--white:#fff;--off:#f2f5fb;--mu:rgba(255,255,255,.58)}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--white);color:var(--blue);overflow-x:hidden}
+.stag{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin-bottom:.85rem;display:flex;align-items:center;gap:.7rem}
+.stag::before{content:'';width:24px;height:2px;background:var(--red);flex-shrink:0}
+.sp{padding:7rem 5rem}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 5rem;height:76px;background:rgba(23,47,94,.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.07);animation:fadeDown .7s ease both}
+.nlogo img{height:40px;filter:brightness(0) invert(1)}
+.nlinks{display:flex;gap:2.4rem;list-style:none}
+.nlinks a{font-size:.78rem;letter-spacing:.13em;text-transform:uppercase;color:var(--mu);text-decoration:none;transition:color .2s}
+.nlinks a:hover{color:var(--white)}
+.nphone{display:flex;align-items:center;gap:.7rem;color:var(--white);text-decoration:none;font-size:.9rem;font-weight:500}
+.nphone-i{width:36px;height:36px;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0;transition:background .2s}
+.nphone:hover .nphone-i{background:var(--rd)}
+
+/* HERO */
+#home{min-height:100vh;background:var(--blue);position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;padding-top:76px}
+.hblob{position:absolute;pointer-events:none;border-radius:50%}
+.hblob.b1{top:-180px;right:-180px;width:720px;height:720px;background:radial-gradient(circle,rgba(217,77,61,.18) 0%,transparent 65%)}
+.hblob.b2{bottom:-100px;left:20%;width:480px;height:480px;background:radial-gradient(circle,rgba(255,255,255,.04) 0%,transparent 65%)}
+.hleft{display:flex;flex-direction:column;justify-content:center;padding:5rem 3.5rem 5rem 5rem;position:relative;z-index:1;animation:fadeUp .9s .15s ease both}
+.eyebrow{display:inline-flex;align-items:center;gap:.8rem;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:1.6rem}
+.eyebrow::before{content:'';width:30px;height:2px;background:rgba(255,255,255,.5)}
+h1{font-family:'Anton',sans-serif;font-size:clamp(3rem,5.5vw,6rem);line-height:1.2;color:var(--white);margin-bottom:1.6rem;letter-spacing:.06em}
+h1 .ac{color:var(--red)}
+.hsub{font-size:1rem;line-height:1.8;color:var(--mu);max-width:420px;margin-bottom:1.8rem}
+.hbadge{display:inline-flex;align-items:center;gap:.8rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);padding:.7rem 1.2rem;margin-bottom:2.4rem;max-width:420px}
+.hbadge p{font-size:.82rem;line-height:1.7;color:rgba(255,255,255,.95);letter-spacing:.06em}
+.hbadge strong{color:#fff;text-decoration:underline;text-underline-offset:2px}
+.hbtns{display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap}
+.btnr{background:var(--red);color:var(--white);padding:.9rem 2.6rem;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .15s;display:inline-block}
+.btnr:hover{background:var(--rd);transform:translateY(-2px)}
+.btng{color:rgba(255,255,255,.6);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .2s}
+.btng:hover{color:var(--white)}
+.btng::after{content:'→'}
+.hright{position:relative;z-index:1;animation:fadeIn 1.1s .35s ease both}
+.hright img{width:100%;height:100%;object-fit:cover;display:block}
+.hright::before{content:'';position:absolute;top:24px;right:24px;z-index:2;width:65px;height:65px;border-top:3px solid var(--red);border-right:3px solid var(--red)}
+.hright::after{content:'';position:absolute;bottom:24px;left:24px;z-index:2;width:65px;height:65px;border-bottom:3px solid var(--red);border-left:3px solid var(--red)}
+.hstat{position:absolute;bottom:3rem;left:-2.5rem;z-index:3;background:var(--white);padding:1.4rem 2rem;box-shadow:0 16px 56px rgba(0,0,0,.22)}
+.hstat-n{font-family:'Anton',sans-serif;font-size:2.8rem;color:var(--red);line-height:1}
+.hstat-l{font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);opacity:.6;margin-top:.35rem}
+
+/* SLIDER */
+#slider{position:relative;width:100%;height:600px;overflow:hidden;background:var(--bd)}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease;pointer-events:none}
+.slide.active{opacity:1;pointer-events:auto}
+.slide img{width:100%;height:100%;object-fit:cover;display:block}
+.slide-ov{position:absolute;inset:0;background:linear-gradient(to right,rgba(23,47,94,.85) 0%,rgba(23,47,94,.4) 55%,transparent 100%)}
+.slide-ct{position:absolute;top:50%;left:5rem;transform:translateY(-50%);max-width:540px;z-index:2}
+.slide-tag{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin-bottom:1rem;display:flex;align-items:center;gap:.6rem}
+.slide-tag::before{content:'';width:22px;height:2px;background:var(--red)}
+.slide-title{font-family:'Anton',sans-serif;font-size:clamp(2.4rem,4.5vw,4rem);color:var(--white);line-height:1.2;margin-bottom:1rem;letter-spacing:.06em}
+.slide-title .ac{color:var(--red)}
+.slide-desc{font-size:.95rem;line-height:1.75;color:rgba(255,255,255,.72);margin-bottom:2rem;max-width:400px}
+.slide-cta{display:inline-flex;align-items:center;gap:.7rem;background:var(--red);color:var(--white);padding:1rem 2.4rem;font-family:'Outfit',sans-serif;font-size:.85rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .15s}
+.slide-cta:hover{background:var(--rd);transform:translateY(-2px)}
+.slide-cta::after{content:'→'}
+.sdots{position:absolute;bottom:2rem;left:5rem;display:flex;gap:.7rem;z-index:3}
+.dot{width:30px;height:3px;background:rgba(255,255,255,.3);cursor:pointer;transition:background .3s,width .3s;border:none;padding:0}
+.dot.active{background:var(--red);width:52px}
+.sarrow{position:absolute;top:50%;transform:translateY(-50%);z-index:3;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:white;width:52px;height:52px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.3rem;transition:background .2s;backdrop-filter:blur(4px)}
+.sarrow:hover{background:var(--red);border-color:var(--red)}
+.sarrow.prev{left:2rem}
+.sarrow.next{right:2rem}
+.sprogress{position:absolute;bottom:0;left:0;height:3px;background:var(--red);width:0;z-index:4;transition:width linear}
+
+/* MARQUEE */
+.mbar{background:var(--red);padding:.85rem 0;overflow:hidden}
+.mtrack{display:flex;gap:2.8rem;animation:marquee 24s linear infinite;white-space:nowrap}
+.mitem{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.88);flex-shrink:0;display:flex;align-items:center;gap:1.2rem}
+.mitem::after{content:'✦';opacity:.45;font-size:.42rem}
+
+/* WHY */
+#why{background:var(--bd);padding:7rem 5rem}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}
+.why-h{font-family:'Anton',sans-serif;font-size:clamp(2.2rem,3.5vw,3.6rem);color:var(--white);line-height:1.2;margin-bottom:1.6rem;letter-spacing:.06em}
+.why-h .ac{color:var(--red)}
+.why-d{font-size:.95rem;line-height:1.85;color:var(--mu);margin-bottom:2rem}
+.why-hl{background:rgba(217,77,61,.12);border-left:4px solid var(--red);padding:1.4rem 1.8rem;margin-bottom:2rem}
+.why-hl p{font-size:1rem;line-height:1.7;color:rgba(255,255,255,.9)}
+.why-hl strong{color:var(--red)}
+.why-steps{display:flex;flex-direction:column;gap:1.2rem}
+.wstep{display:flex;gap:1.2rem;align-items:flex-start}
+.wstep-n{font-family:'Anton',sans-serif;font-size:2rem;color:var(--red);line-height:1;flex-shrink:0;width:2rem}
+.wstep-t strong{display:block;font-size:.88rem;font-weight:500;color:var(--white);margin-bottom:.2rem;text-transform:uppercase;letter-spacing:.06em}
+.wstep-t span{font-size:.83rem;color:var(--mu);line-height:1.5}
+.why-r{display:flex;flex-direction:column;gap:1rem}
+.wcard{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);padding:1.8rem 2rem;transition:background .2s,border-color .2s}
+.wcard:hover{background:rgba(255,255,255,.09);border-color:rgba(217,77,61,.4)}
+
+.wcard-t{font-family:'Anton',sans-serif;font-size:1.1rem;color:var(--white);margin-bottom:.5rem;letter-spacing:.06em}
+.wcard-d{font-size:.84rem;line-height:1.65;color:var(--mu)}
+
+/* ABOUT */
+#about{background:var(--off);display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;padding:7rem 5rem}
+.avis{position:relative}
+.aphoto-grid{display:grid;grid-template-columns:1.2fr 1fr;grid-template-rows:480px;gap:.6rem}
+.aphoto{width:100%;height:100%;object-fit:cover;display:block}
+.aphoto-main{object-position:center top}
+.aphoto-sub{object-position:center center}
+.abadge{position:absolute;bottom:-2rem;right:-2rem;background:var(--blue);color:var(--white);padding:1.8rem 2.2rem;text-align:center;box-shadow:0 10px 44px rgba(32,71,144,.3)}
+.abadge-m{font-family:'Anton',sans-serif;font-size:.95rem;color:var(--red);line-height:1.3}
+.abadge-s{font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;opacity:.6;margin-top:.4rem}
+.about-h{font-family:'Anton',sans-serif;font-size:clamp(2rem,3vw,3rem);color:var(--blue);line-height:1.2;margin-bottom:1.6rem;letter-spacing:.06em}
+.about-h .ac{color:var(--red)}
+.acont p{font-size:.95rem;line-height:1.82;color:rgba(32,71,144,.7);margin-bottom:1rem}
+.acont p strong{color:var(--blue);font-weight:500}
+.avals{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-top:2rem}
+.aval{padding:1.1rem 1.3rem;border-left:3px solid var(--red);background:var(--white)}
+.aval-t{font-size:.75rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--blue);margin-bottom:.25rem}
+.aval-d{font-size:.8rem;color:rgba(32,71,144,.58);line-height:1.5}
+
+/* PARTNERS */
+#partners{background:var(--white);padding:5rem;text-align:center}
+.part-h{font-family:'Anton',sans-serif;font-size:clamp(1.6rem,2.5vw,2.4rem);color:var(--blue);margin-bottom:.8rem;letter-spacing:.06em}
+.part-s{font-size:.9rem;color:rgba(32,71,144,.6);margin-bottom:3.5rem;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.7}
+.part-g{display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;align-items:center}
+.plogo{display:flex;align-items:center;justify-content:center;padding:1rem 1.8rem;border:1.5px solid rgba(32,71,144,.12);background:var(--white);text-decoration:none;transition:all .25s;min-width:150px;height:68px}
+.plogo:hover{border-color:var(--red);box-shadow:0 4px 20px rgba(32,71,144,.1);transform:translateY(-2px)}
+.plogo img{max-height:38px;max-width:130px;object-fit:contain;filter:grayscale(100%);opacity:.65;transition:all .25s}
+.plogo:hover img{filter:grayscale(0%);opacity:1}
+.plogo-t{font-family:'Anton',sans-serif;font-size:.95rem;letter-spacing:.05em;color:rgba(32,71,144,.7);transition:color .2s}
+.plogo:hover .plogo-t{color:var(--blue)}
+
+/* GALLERY */
+#gallery{background:var(--bd)}
+.gal-h{font-family:'Anton',sans-serif;font-size:clamp(2rem,3vw,3rem);color:var(--white);line-height:1.2;margin-bottom:3rem;letter-spacing:.06em}
+.gal-h .ac{color:var(--red)}
+.ggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem}
+.gi{position:relative;overflow:hidden;cursor:pointer;height:240px}
+.gi.big{height:496px;grid-row:span 2}
+.gi img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.gi:hover img{transform:scale(1.08)}
+.gov{position:absolute;inset:0;background:linear-gradient(to top,rgba(23,47,94,.9) 0%,rgba(23,47,94,.3) 50%,transparent 100%);opacity:0;transition:opacity .35s;display:flex;flex-direction:column;justify-content:flex-end;padding:1.4rem}
+.gi:hover .gov{opacity:1}
+.gov-name{color:white;font-family:'Anton',sans-serif;font-size:1rem;letter-spacing:.08em;margin-bottom:.5rem}
+.gov-desc{color:rgba(255,255,255,.85);font-size:.78rem;line-height:1.5;display:none}
+.gi:hover .gov-desc{display:block}
+/* Modal */
+.gmodal{display:none;position:fixed;inset:0;z-index:500;align-items:center;justify-content:center;background:rgba(0,0,0,.75);backdrop-filter:blur(6px)}
+.gmodal.open{display:flex}
+.gmodal-box{background:var(--bd);max-width:560px;width:90%;padding:2.5rem;position:relative}
+.gmodal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;color:white;font-size:1.4rem;cursor:pointer;opacity:.6;transition:opacity .2s}
+.gmodal-close:hover{opacity:1}
+.gmodal-img{width:100%;height:220px;object-fit:cover;display:block;margin-bottom:1.4rem}
+.gmodal-tag{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:.6rem}
+.gmodal-title{font-family:'Anton',sans-serif;font-size:1.8rem;color:white;margin-bottom:1rem;letter-spacing:.02em}
+.gmodal-desc{font-size:.9rem;line-height:1.75;color:rgba(255,255,255,.7);margin-bottom:1.6rem}
+.gmodal-cta{display:inline-flex;align-items:center;gap:.6rem;background:var(--red);color:white;padding:.85rem 2rem;font-family:'Outfit',sans-serif;font-size:.85rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.gmodal-cta:hover{background:var(--rd)}
+.gmodal-cta::after{content:'→'}
+
+/* SERVICES */
+#services{background:var(--white)}
+.srv-h{font-family:'Anton',sans-serif;font-size:clamp(2rem,3vw,3rem);color:var(--blue);line-height:1.2;margin-bottom:3rem;letter-spacing:.06em}
+.srv-h .ac{color:var(--red)}
+.srvg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.srvc{border:1.5px solid rgba(32,71,144,.1);padding:2.6rem 2rem;position:relative;overflow:hidden;transition:border-color .2s,box-shadow .25s,transform .2s}
+.srvc::after{content:'';position:absolute;bottom:0;left:0;width:0;height:3px;background:var(--red);transition:width .38s ease}
+.srvc:hover{border-color:rgba(32,71,144,.2);box-shadow:0 10px 40px rgba(32,71,144,.1);transform:translateY(-4px)}
+.srvc:hover::after{width:100%}
+
+.srvt{font-family:'Anton',sans-serif;font-size:1.2rem;color:var(--blue);margin-bottom:.75rem;letter-spacing:.02em}
+.srvd{font-size:.87rem;line-height:1.78;color:rgba(32,71,144,.6)}
+
+/* REVIEWS */
+#reviews{background:var(--off)}
+.rev-h{font-family:'Anton',sans-serif;font-size:clamp(2rem,3vw,3rem);color:var(--blue);line-height:1.2;margin-bottom:3rem;letter-spacing:.06em}
+.rev-h .ac{color:var(--red)}
+.revg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.revc{background:var(--white);padding:2rem 2rem 1.6rem;border-bottom:3px solid transparent;transition:border-color .2s,box-shadow .2s}
+.revc:hover{border-color:var(--red);box-shadow:0 6px 30px rgba(32,71,144,.08)}
+.revs{color:#f0a500;font-size:.95rem;margin-bottom:1rem;letter-spacing:.1em}
+.revt{font-size:.9rem;line-height:1.75;color:rgba(32,71,144,.7);margin-bottom:1.4rem;font-style:italic}
+.reva{display:flex;align-items:center;gap:.8rem}
+.revav{width:38px;height:38px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-family:'Anton',sans-serif;font-size:.95rem;flex-shrink:0}
+.revn{font-size:.82rem;font-weight:500;color:var(--blue)}
+.revsrc{font-size:.72rem;color:var(--red);letter-spacing:.08em;text-transform:uppercase;margin-top:.15rem}
+
+/* CONTACT */
+#contact{background:var(--bd)}
+.con-h{font-family:'Anton',sans-serif;font-size:clamp(2rem,3vw,3rem);color:var(--white);line-height:1.2;margin-bottom:2.8rem;letter-spacing:.06em}
+.con-h .ac{color:var(--red)}
+.cong{display:grid;grid-template-columns:1fr 1.4fr;gap:6rem}
+.cond{font-size:.95rem;line-height:1.8;color:var(--mu);margin-bottom:2.8rem}
+.conitems{display:flex;flex-direction:column;gap:1.4rem}
+.ci{display:flex;gap:1.2rem;align-items:flex-start}
+.ci-ic{width:44px;height:44px;flex-shrink:0;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:1rem}
+.ci-l{font-size:.63rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:.2rem}
+.ci-v{font-size:.9rem;color:rgba(255,255,255,.78);line-height:1.5}
+.ci-v a{color:rgba(255,255,255,.78);text-decoration:none}
+.ci-v a:hover{color:var(--red)}
+.soclinks{display:flex;gap:1rem;margin-top:2.5rem;flex-wrap:wrap}
+.soclink{display:flex;align-items:center;gap:.6rem;padding:.65rem 1.2rem;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.65);text-decoration:none;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;transition:all .2s}
+.soclink:hover{background:var(--red);border-color:var(--red);color:var(--white)}
+.cform{display:flex;flex-direction:column;gap:1.1rem}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.fg{display:flex;flex-direction:column;gap:.4rem}
+.fg label{font-size:.63rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.38)}
+.fg input,.fg textarea,.fg select{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:var(--white);padding:.85rem 1rem;font-family:'Outfit',sans-serif;font-size:.87rem;outline:none;width:100%;transition:border-color .2s,background .2s}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,.22)}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--red);background:rgba(255,255,255,.09)}
+.fg select option{background:var(--bd)}
+.fg textarea{resize:vertical;min-height:115px}
+.btnsub{background:var(--red);color:var(--white);border:none;padding:1rem 2.8rem;font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;align-self:flex-start;transition:background .2s,transform .15s}
+.btnsub:hover{background:var(--rd);transform:translateY(-2px)}
+
+/* FOOTER */
+footer{background:#0e1e3d;color:rgba(255,255,255,.3);padding:2.2rem 5rem;display:flex;align-items:center;justify-content:space-between;font-size:.76rem;letter-spacing:.05em}
+footer img{height:28px;filter:brightness(0) invert(1);opacity:.4}
+footer a{color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s}
+footer a:hover{color:var(--red)}
+.flinks{display:flex;gap:1.4rem}
+
+/* ANIMATIONS */
+@keyframes fadeDown{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  nav{padding:0 1.4rem}
+  .nlinks{display:none}
+  #home{grid-template-columns:1fr}
+  .hleft{padding:5rem 1.5rem 3rem}
+  .hright{height:300px}
+  .hright::before,.hright::after{display:none}
+  .hstat{left:1rem;bottom:1.5rem}
+  #slider{height:420px}
+  .slide-ct{left:1.5rem;right:1.5rem;max-width:100%}
+  .sdots{left:1.5rem;bottom:1.5rem}
+  .sarrow{display:none}
+  #why{padding:5rem 1.5rem}
+  .why-grid{grid-template-columns:1fr;gap:3rem}
+  #about{grid-template-columns:1fr;padding:5rem 1.5rem;gap:3.5rem}
+  .abadge{right:0;bottom:-1rem}
+  .sp{padding:5rem 1.5rem}
+  #partners{padding:4rem 1.5rem}
+  .ggrid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .gi:first-child{grid-row:auto;grid-column:1/3;height:220px}
+  .gi{height:180px}
+  .srvg,.revg{grid-template-columns:1fr}
+  .cong{grid-template-columns:1fr;gap:3rem}
+  .frow{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:1rem;padding:1.5rem;text-align:center}
+  .flinks{justify-content:center;flex-wrap:wrap}
+}
+</style>
+<!-- Facebook SDK -->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/cs_CZ/sdk.js#xfbml=1&version=v19.0"></script>
+</head>
+<body>
+
+<nav>
+  <a href="#home" class="nlogo" style="font-family:'Georgia',serif;font-size:2rem;color:white;text-decoration:none;letter-spacing:0.08em;font-style:italic;">CABS</a>
+  <ul class="nlinks">
+    <li><a href="#why">Proč CABS</a></li>
+    <li><a href="#about">O mně</a></li>
+    <li><a href="#gallery">Destinace</a></li>
+    <li><a href="#reviews">Recenze</a></li>
+    <li><a href="#facebook">Nabídky</a></li>
+    <li><a href="#contact">Kontakt</a></li>
+  </ul>
+  <a href="tel:+420774344576" class="nphone">
+    <div class="nphone-i">📞</div>
+    <span>+420 774 344 576</span>
+  </a>
+</nav>
+
+<section id="home">
+  <div class="hblob b1"></div>
+  <div class="hblob b2"></div>
+  <div class="hleft">
+    <div class="eyebrow">Cestovní agentura · Blanka Slavíková</div>
+    <h1>VAŠE CESTA<br>ZAČÍNÁ<br><span class="ac">ZDE</span></h1>
+    <p class="hsub">Plánuji dovolené s osobním přístupem a srdcem. Každý výlet je pro mě závazek — ne jen rezervace.</p>
+    <div class="hbadge">
+      <p><strong>Moje služby jsou pro vás zdarma.</strong> Platí mě cestovní kancelář — vy nezaplatíte ani korunu navíc.</p>
+    </div>
+    <div class="hbtns">
+      <a class="btnr" href="#contact">Nezávazná poptávka</a>
+      <a class="btng" href="#why">Jak to funguje</a>
+    </div>
+  </div>
+  <div class="hright">
+    <img src="hero.png" alt="CABS"/>
+    <div class="hstat">
+      <div class="hstat-n">100%</div>
+      <div class="hstat-l">osobní přístup</div>
+    </div>
+  </div>
+</section>
+
+<div id="slider">
+  <div class="slide active">
+    <img src="lanzarote.jpg" alt="Lanzarote"/>
+    <div class="slide-ov"></div>
+    <div class="slide-ct">
+      <div class="slide-tag">Kanárské ostrovy</div>
+      <h2 class="slide-title">LANZAROTE,<br><span class="ac">ŠPANĚLSKO</span></h2>
+      <p class="slide-desc">Vulkanická krajina, zlaté pláže a tyrkysové moře. Lanzarote okouzlí každého, kdo sem zavítá.</p>
+      <a href="#contact" class="slide-cta">Objednat konzultaci</a>
+    </div>
+  </div>
+  <div class="slide">
+    <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=1400&q=80" alt="Rimini"/>
+    <div class="slide-ov"></div>
+    <div class="slide-ct">
+      <div class="slide-tag">Středomoří</div>
+      <h2 class="slide-title">RIMINI,<br><span class="ac">ITÁLIE</span></h2>
+      <p class="slide-desc">Písečné pláže, italská kuchyně a živá atmosféra. Rimini — klasická dovolená u moře s italským šarmem.</p>
+      <a href="#contact" class="slide-cta">Objednat konzultaci</a>
+    </div>
+  </div>
+  <div class="slide">
+    <img src="madeira.jpg" alt="Madeira"/>
+    <div class="slide-ov"></div>
+    <div class="slide-ct">
+      <div class="slide-tag">Atlantický oceán</div>
+      <h2 class="slide-title">MADEIRA,<br><span class="ac">PORTUGALSKO</span></h2>
+      <p class="slide-desc">Zelený ostrov věčného jara. Úchvatná příroda, dramatické útesy a kouzelná atmosféra Funchalu.</p>
+      <a href="#contact" class="slide-cta">Objednat konzultaci</a>
+    </div>
+  </div>
+  <div class="slide">
+    <img src="mallorca.jpg" alt="Mallorca"/>
+    <div class="slide-ov"></div>
+    <div class="slide-ct">
+      <div class="slide-tag">Středomoří</div>
+      <h2 class="slide-title">MALLORCA,<br><span class="ac">ŠPANĚLSKO</span></h2>
+      <p class="slide-desc">Zlaté pláže, skryté zátoky a španělská pohoda. Ideální pro rodiny i páry hledající odpočinek.</p>
+      <a href="#contact" class="slide-cta">Objednat konzultaci</a>
+    </div>
+  </div>
+  <button class="sarrow prev">&#8592;</button>
+  <button class="sarrow next">&#8594;</button>
+  <div class="sdots">
+    <button class="dot active"></button>
+    <button class="dot"></button>
+    <button class="dot"></button>
+    <button class="dot"></button>
+  </div>
+  <div class="sprogress" id="sp"></div>
+</div>
+
+<div class="mbar">
+  <div class="mtrack">
+    <span class="mitem">Řecko</span><span class="mitem">Chorvatsko</span><span class="mitem">Itálie</span><span class="mitem">Španělsko</span><span class="mitem">Turecko</span><span class="mitem">Kypr</span><span class="mitem">Malta</span><span class="mitem">Maroko</span><span class="mitem">Portugalsko</span><span class="mitem">Egypt</span><span class="mitem">Řecko</span><span class="mitem">Chorvatsko</span><span class="mitem">Itálie</span><span class="mitem">Španělsko</span><span class="mitem">Turecko</span><span class="mitem">Kypr</span><span class="mitem">Malta</span><span class="mitem">Maroko</span><span class="mitem">Portugalsko</span><span class="mitem">Egypt</span>
+  </div>
+</div>
+
+<section id="why">
+  <div class="why-grid">
+    <div class="reveal">
+      <div class="stag">Proč přes agenturu</div>
+      <h2 class="why-h">AGENTURA<br>PRO VÁS<br><span class="ac">ZDARMA</span></h2>
+      <p class="why-d">Tohle málokdo ví — pomůžu vám vybrat, zarezervuji a poradím. A nezaplatíte za to ani korunu navíc.</p>
+      <div class="why-hl"><p>Zaplatíte přesně tolik, kolik byste zaplatili přímo u CK. <strong>Mou odměnu platí CK — ne vy.</strong></p></div>
+      <div class="why-steps">
+        <div class="wstep"><div class="wstep-n">1</div><div class="wstep-t"><strong>Zavoláte nebo napíšete</strong><span>Řeknete mi kam chcete jet, kdy a co máte rádi</span></div></div>
+        <div class="wstep"><div class="wstep-n">2</div><div class="wstep-t"><strong>Porovnám nabídky za vás</strong><span>Prohledám nabídky od všech partnerských CK</span></div></div>
+        <div class="wstep"><div class="wstep-n">3</div><div class="wstep-t"><strong>Vy si vyberete a jedete</strong><span>Vše zařídím — od letenky po pojištění</span></div></div>
+      </div>
+    </div>
+    <div class="why-r reveal">
+      <div class="wcard"><div class="wcard-t">Porovnám za vás</div><p class="wcard-d">Mám přístup k nabídkám všech partnerských CK najednou. Ušetřím vám hodiny hledání.</p></div>
+      <div class="wcard"><div class="wcard-t">Znám hotely osobně</div><p class="wcard-d">Nedoporučuji naslepo. Destinace a hotely znám z vlastní zkušenosti.</p></div>
+      <div class="wcard"><div class="wcard-t">Jsem tu pro vás</div><p class="wcard-d">Telefonicky, e-mailem i osobně. Žádný chatbot — živý člověk, který vám poradí.</p></div>
+      <div class="wcard"><div class="wcard-t">Stejná cena, víc klidu</div><p class="wcard-d">Zaplatíte cenu z katalogu. Bez příplatků, bez skrytých poplatků.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="avis reveal">
+    <div class="aphoto-grid">
+      <img class="aphoto aphoto-main" src="blanka.jpg" alt="Blanka Slavíková"/>
+      <img class="aphoto aphoto-sub" src="kancelar.jpg" alt="Kancelář CABS"/>
+    </div>
+    <div class="abadge">
+      <div class="abadge-m">Vášeň pro cestování</div>
+      <div class="abadge-s">celý život</div>
+    </div>
+  </div>
+  <div class="acont reveal">
+    <div class="stag">O mně</div>
+    <h2 class="about-h">CESTOVÁNÍ<br>JAKO ŽIVOTNÍ<br><span class="ac">VÁŠEŇ</span></h2>
+    <p>Celý život jsem pomáhala přátelům a rodině plánovat dovolené. Věděla jsem, kam jet, v jakém hotelu je dobře, co si nedát ujít. A bavilo mě to víc než cokoliv jiného.</p>
+    <p>V 60 letech jsem se rozhodla udělat z vášně podnikání. <strong>CABS vzniklo proto, aby každý mohl mít svého osobního cestovního poradce</strong> — bez fronty, bez formulářů, s lidským přístupem.</p>
+    <p>Specializuji se na <strong>Středomoří</strong> — místa, která miluji a důvěrně znám. Ale zajedu s vámi kamkoliv.</p>
+    <div class="avals">
+      <div class="aval"><div class="aval-t">Osobní přístup</div><div class="aval-d">Nejste číslo — znám vás jménem</div></div>
+      <div class="aval"><div class="aval-t">Prověřené destinace</div><div class="aval-d">Jen místa, která sama znám</div></div>
+      <div class="aval"><div class="aval-t">Vždy dostupná</div><div class="aval-d">Telefon, e-mail, osobní setkání</div></div>
+      <div class="aval"><div class="aval-t">Bez starostí</div><div class="aval-d">Od letenky po hotel — vše zařídím</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="partners">
+  <div class="stag reveal" style="justify-content:center"><span>Partnerské cestovní kanceláře</span></div>
+  <h2 class="part-h reveal">SPOLUPRACUJI S NEJLEPŠÍMI CK</h2>
+  <p class="part-s reveal">Díky spolupráci s předními CK vám nabídnu to nejlepší z jejich portfolia — vše na jednom místě.</p>
+  <div class="part-g reveal">
+    <a href="https://www.eximtours.cz" target="_blank" class="plogo">
+      <img src="https://www.eximtours.cz/images/logo.svg" alt="EXIM Tours" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+      <span class="plogo-t" style="display:none">EXIM TOURS</span>
+    </a>
+    <a href="https://www.fischer.cz" target="_blank" class="plogo">
+      <img src="https://www.fischer.cz/img/logo-fischer.svg" alt="Fischer" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+      <span class="plogo-t" style="display:none">FISCHER</span>
+    </a>
+    <a href="https://www.ck-alexandrie.cz" target="_blank" class="plogo">
+      <img src="https://www.ck-alexandrie.cz/images/logo.png" alt="Alexandrie" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+      <span class="plogo-t" style="display:none">ALEXANDRIE</span>
+    </a>
+    <a href="https://www.ceskekormidlo.cz" target="_blank" class="plogo">
+      <img src="https://www.ceskekormidlo.cz/img/logo.png" alt="České Kormidlo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+      <span class="plogo-t" style="display:none">ČESKÉ KORMIDLO</span>
+    </a>
+    <a href="https://www.nev-dama.cz" target="_blank" class="plogo">
+      <img src="https://www.nev-dama.cz/images/logo.png" alt="Nev-Dama" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+      <span class="plogo-t" style="display:none">NEV-DAMA</span>
+    </a>
+    <a href="https://www.cedok.cz" target="_blank" class="plogo">
+      <img src="https://www.cedok.cz/images/logo-cedok.svg" alt="Čedok" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+      <span class="plogo-t" style="display:none">ČEDOK</span>
+    </a>
+  </div>
+</section>
+
+<section id="gallery" class="sp">
+  <div class="stag reveal">Oblíbené destinace</div>
+  <h2 class="gal-h reveal">MÍSTA KTERÁ<br><span class="ac">BEROU DECH</span></h2>
+  <div class="ggrid reveal">
+    <div class="gi big" onclick="openModal('Lanzarote, Španělsko','Kanárské ostrovy','lanzarote.jpg','Vulkanická krajina, černé pláže a tyrkysové moře. Kanárský ostrov plný kontrastů, kde příroda překvapí na každém kroku.')">
+      <img src="lanzarote.jpg" alt="Lanzarote"/>
+      <div class="gov"><div class="gov-name">Lanzarote, Španělsko</div><div class="gov-desc">Vulkanická krajina a tyrkysové moře</div></div>
+    </div>
+    <div class="gi" onclick="openModal('Rimini, Itálie','Středomoří','https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=800&q=80','Italská klasika s nejdelší písečnou pláží na Jadranu. Skvělá volba pro rodiny i páry, kteří chtějí pohodu, dobré jídlo a slunce.')">
+      <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=600&q=80" alt="Rimini"/>
+      <div class="gov"><div class="gov-name">Rimini, Itálie</div><div class="gov-desc">Nejdelší písečná pláž na Jadranu</div></div>
+    </div>
+    <div class="gi" onclick="openModal('Madeira, Portugalsko','Atlantický oceán','madeira.jpg','Zelený ostrov věčného jara uprostřed Atlantiku. Úchvatná příroda, turistické stezky levády a pohostinná atmosféra Funchalu.')">
+      <img src="madeira.jpg" alt="Madeira"/>
+      <div class="gov"><div class="gov-name">Madeira, Portugalsko</div><div class="gov-desc">Zelený ostrov věčného jara</div></div>
+    </div>
+    <div class="gi" onclick="openModal('Mallorca, Španělsko','Středomoří','mallorca.jpg','Největší Baleárský ostrov se zlatými plážemi a skrytými zátokami. Kombinace přírody, kultury a španělské pohody pro každého.')">
+      <img src="mallorca.jpg" alt="Mallorca"/>
+      <div class="gov"><div class="gov-name">Mallorca, Španělsko</div><div class="gov-desc">Zlaté pláže a skryté zátoky</div></div>
+    </div>
+    <div class="gi" onclick="openModal('Turecko','Středomoří','turecko.jpg','Antická historie, tyrkysové moře a skvělé all-inclusive hotely. Oblast Side ukrývá překrásné římské ruiny přímo u moře.')">
+      <img src="turecko.jpg" alt="Turecko"/>
+      <div class="gov"><div class="gov-name">Turecko</div><div class="gov-desc">Luxus i dobrodružství za skvělou cenu</div></div>
+    </div>
+    <div class="gi" onclick="openModal('Tunisko','Afrika','tunisko.jpg','Africká exotika na dosah ruky. Bílé pláže, arabská kultura a slunce po celý rok — za překvapivě dostupnou cenu.')">
+      <img src="tunisko.jpg" alt="Tunisko"/>
+      <div class="gov"><div class="gov-name">Tunisko</div><div class="gov-desc">Africká exotika za dostupnou cenu</div></div>
+    </div>
+    <div class="gi" onclick="openModal('Kréta, Řecko','Středomoří','kreta.jpg','Nejväčší řecký ostrov s dlouhými písečnými plážemi, průzračným mořem a bohatou minojskou historií. Kréta nabídne přírodu, kulturu i perfektní odpočinek.')">
+      <img src="kreta.jpg" alt="Kréta"/>
+      <div class="gov"><div class="gov-name">Kréta, Řecko</div><div class="gov-desc">Písečné pláže a minojská historie</div></div>
+    </div>
+    <div class="gi" onclick="openModal('Chorvatsko','Jadranské moře','chorvatsko.jpg','Křišťálově čisté moře, historická města a středověké hradby. Chorvatsko je českou jedničkou a není se čemu divit.')">
+      <img src="chorvatsko.jpg" alt="Chorvatsko"/>
+      <div class="gov"><div class="gov-name">Chorvatsko</div><div class="gov-desc">Křišťálové moře a historická města</div></div>
+    </div>
+    <div class="gi" onclick="openModal('Egypt','Severní Afrika','egypt.jpg','Slunce, korálové útesy a all-inclusive luxus. Egypt je synonymem pro perfektní odpočinek u Rudého moře za skvělou cenu.')">
+      <img src="egypt.jpg" alt="Egypt"/>
+      <div class="gov"><div class="gov-name">Egypt</div><div class="gov-desc">All-inclusive luxus u Rudého moře</div></div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="gmodal" id="gmodal" onclick="closeModal(event)">
+    <div class="gmodal-box">
+      <button class="gmodal-close" onclick="document.getElementById('gmodal').classList.remove('open')">✕</button>
+      <img class="gmodal-img" id="gmodal-img" src="" alt=""/>
+      <div class="gmodal-tag" id="gmodal-tag"></div>
+      <div class="gmodal-title" id="gmodal-title"></div>
+      <div class="gmodal-desc" id="gmodal-desc"></div>
+      <a href="#contact" class="gmodal-cta" onclick="document.getElementById('gmodal').classList.remove('open')">Chci tuto destinaci</a>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="sp">
+  <div class="stag reveal">Co nabízím</div>
+  <h2 class="srv-h reveal">KOMPLETNÍ PÉČE<br>OD <span class="ac">A DO Z</span></h2>
+  <div class="srvg reveal">
+    <div class="srvc"><div class="srvt">Letecké zájezdy</div><p class="srvd">Letenky, transfery, pojištění — vše zařídím za vás. Porovnám nabídky všech CK a najdu tu nejlepší.</p></div>
+    <div class="srvc"><div class="srvt">Dovolená na míru</div><p class="srvd">Řeknete mi, co máte rádi — a já sestavím itinerář přesně pro vás. Žádné šablony, každá dovolená je jedinečná.</p></div>
+    <div class="srvc"><div class="srvt">Ubytování & hotely</div><p class="srvd">Od útulných penzionů po all-inclusive resorty. Znám hotely osobně a doporučím jen to, co stojí za to.</p></div>
+  </div>
+</section>
+
+<section id="reviews" class="sp">
+  <div class="stag reveal">Spokojení zákazníci</div>
+  <h2 class="rev-h reveal">CO ŘÍKAJÍ<br><span class="ac">OSTATNÍ</span></h2>
+  <div class="revg reveal">
+    <div class="revc">
+      <div class="revs">★★★★★</div>
+      <p class="revt">"Blanko, moc děkuji za úžasnou dovolenou, vybrala si nám perfektní místo a my si to opravdu užili. Delegát byl příjemný, ochotný. Ubytování i jídlo super. A velmi děkuji i za průběžný zájem o nás během pobytu."</p>
+      <div class="reva"><div class="revav">V</div><div><div class="revn">Vlasta Picková</div><div class="revsrc">Google recenze</div></div></div>
+    </div>
+    <div class="revc">
+      <div class="revs">★★★★★</div>
+      <p class="revt">"I já mohu vřele doporučit Blaničku Slavíkovou a její cestovní agenturu. Když jsem v lednu řešila dárek k mamciným narozeninám, oslovila jsem právě Blaničku — výběr možností byl velký. Volba padla na mou vysněnou Madeiru. Blani děkujeme a na září se opět přihlásím!"</p>
+      <div class="reva"><div class="revav">M</div><div><div class="revn">Martina Nejtková</div><div class="revsrc">Google recenze · před 2 dny</div></div></div>
+    </div>
+    <div class="revc">
+      <div class="revs">★★★★★</div>
+      <p class="revt">"Ráda bych doporučila Blanku Slavíkovou a její cestovní agenturu. Díky ní jsem zažila opravdu skvělou dovolenou v Egyptě, kterou mi perfektně vybrala na míru. Je vidět, že svou práci dělá s nadšením. Pokud přemýšlíte nad dovolenou, určitě se na ni obraťte!"</p>
+      <div class="reva"><div class="revav">M</div><div><div class="revn">Martina Yilmaz Jelínková</div><div class="revsrc">Facebook recenze · 16. dubna</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FACEBOOK -->
+<section id="facebook" class="sp" style="background:var(--off)">
+  <div class="stag reveal">Sledujte nás</div>
+  <h2 class="srv-h reveal" style="color:var(--blue)">AKTUÁLNÍ NABÍDKY<br>A <span class="ac">LAST MINUTE</span></h2>
+  <p class="reveal" style="font-size:.95rem;color:rgba(32,71,144,.65);margin-bottom:2.5rem;max-width:560px;line-height:1.75">Sledujte naši Facebook stránku — pravidelně sdílíme last minute nabídky, tipy na dovolené a novinky z destinací.</p>
+  <div class="reveal" style="display:flex;flex-wrap:wrap;gap:2rem;align-items:flex-start">
+    <div class="fb-page"
+      data-href="https://www.facebook.com/profile.php?id=61577892062099"
+      data-tabs="timeline"
+      data-width="500"
+      data-height="600"
+      data-small-header="false"
+      data-adapt-container-width="true"
+      data-hide-cover="false"
+      data-show-facepile="true">
+    </div>
+    <div style="flex:1;min-width:260px">
+      <div style="background:var(--blue);padding:2rem;margin-bottom:1rem">
+        <div style="font-family:'Outfit',sans-serif;font-size:1rem;font-weight:500;color:white;margin-bottom:.5rem;letter-spacing:.1em;text-transform:uppercase">📢 LAST MINUTE</div>
+        <p style="font-size:.85rem;color:rgba(255,255,255,.7);line-height:1.6">Nejnovější last minute nabídky zveřejňuji pravidelně ve stories a jako příspěvky. Sledujte stránku ať vám nic neunikne!</p>
+        <a href="https://www.facebook.com/profile.php?id=61577892062099" target="_blank" style="display:inline-flex;align-items:center;gap:.6rem;background:var(--red);color:white;padding:.75rem 1.6rem;font-family:'Outfit',sans-serif;font-size:.85rem;font-weight:500;text-decoration:none;margin-top:1.2rem;letter-spacing:.1em;text-transform:uppercase">👍 Sledovat stránku</a>
+      </div>
+      <div style="background:var(--blue-dark);padding:2rem">
+        <div style="font-family:'Outfit',sans-serif;font-size:1rem;font-weight:500;color:white;margin-bottom:.5rem;letter-spacing:.1em;text-transform:uppercase">📸 INSTAGRAM</div>
+        <p style="font-size:.85rem;color:rgba(255,255,255,.7);line-height:1.6">Na Instagramu sdílíme fotky z destinací, tipy a zákulisí cestování.</p>
+        <a href="https://www.instagram.com/cestuj_s_blankou" target="_blank" style="display:inline-flex;align-items:center;gap:.6rem;background:var(--red);color:white;padding:.75rem 1.6rem;font-family:'Outfit',sans-serif;font-size:.85rem;font-weight:500;text-decoration:none;margin-top:1.2rem;letter-spacing:.1em;text-transform:uppercase">📸 cestuj_s_blankou</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="sp">
+  <div class="cong">
+    <div class="reveal">
+      <div class="stag">Pojďme se spojit</div>
+      <h2 class="con-h">NAPLÁNUJME<br>VAŠI <span class="ac">VYSNĚNOU</span><br>CESTU</h2>
+      <p class="cond">Zavolejte, napište nebo se stavte osobně. Žádný chatbot — jen Blanka, která vám opravdu poradí.</p>
+      <div class="conitems">
+        <div class="ci"><div class="ci-ic">📞</div><div><div class="ci-l">Telefon</div><div class="ci-v"><a href="tel:+420774344576">+420 774 344 576</a></div></div></div>
+        <div class="ci"><div class="ci-ic">✉️</div><div><div class="ci-l">E-mail</div><div class="ci-v">info-cabs@email.cz</div></div></div>
+        <div class="ci"><div class="ci-ic">📍</div><div><div class="ci-l">Osobní schůzka</div><div class="ci-v">Dle domluvy</div></div></div>
+      </div>
+      <div class="soclinks">
+        <a href="https://www.facebook.com/profile.php?id=61577892062099" target="_blank" class="soclink">📘 Facebook</a>
+        <a href="https://www.instagram.com/cestuj_s_blankou" target="_blank" class="soclink">📸 cestuj_s_blankou</a>
+      </div>
+    </div>
+    <div class="reveal">
+      <form class="cform" action="https://formspree.io/f/mvznaygy" method="POST">
+        <input type="hidden" name="_next" value="https://www.ca-bs.cz"/>
+        <div class="frow">
+          <div class="fg"><label>Jméno</label><input type="text" name="jmeno" placeholder="Jana Nováková" required/></div>
+          <div class="fg"><label>Telefon</label><input type="tel" name="telefon" placeholder="+420 774 344 576"/></div>
+        </div>
+        <div class="fg"><label>E-mail</label><input type="email" name="email" placeholder="jana@email.cz" required/></div>
+        <div class="fg">
+          <label>Typ zájezdu</label>
+          <select name="typ_zajezdu">
+            <option value="" disabled selected>Vyberte typ</option>
+            <option>Letecký zájezd – Středomoří</option>
+            <option>Dovolená na míru</option>
+            <option>Pobyt u moře – rodina s dětmi</option>
+            <option>Pobyt u moře – pár</option>
+            <option>Poznávací zájezd</option>
+            <option>Last minute</option>
+            <option>Jiné</option>
+          </select>
+        </div>
+        <div class="fg"><label>Vaše přání</label><textarea name="prani" placeholder="Kam chcete jet, kdy, kolik vás bude, co máte rádi…"></textarea></div>
+        <button type="submit" class="btnsub">ODESLAT POPTÁVKU →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span style="font-family:'Georgia',serif;font-size:1.4rem;color:rgba(255,255,255,.4);letter-spacing:0.08em;font-style:italic;">CABS</span>
+  <span>© 2025 CABS · Blanka Slavíková · info-cabs@email.cz</span>
+  <div class="flinks">
+    <a href="https://www.instagram.com/cestuj_s_blankou" target="_blank">Instagram</a>
+    <a href="https://www.facebook.com/profile.php?id=61577892062099" target="_blank">Facebook</a>
+    <a href="#home">↑ Nahoru</a>
+  </div>
+</footer>
+
+<script>
+const slides=document.querySelectorAll('.slide');
+const dots=document.querySelectorAll('.dot');
+const progress=document.getElementById('sp');
+let cur=0,timer;
+const DUR=5000;
+function goTo(n){
+  slides[cur].classList.remove('active');
+  dots[cur].classList.remove('active');
+  cur=(n+slides.length)%slides.length;
+  slides[cur].classList.add('active');
+  dots[cur].classList.add('active');
+  progress.style.transition='none';
+  progress.style.width='0%';
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    progress.style.transition=`width ${DUR}ms linear`;
+    progress.style.width='100%';
+  }));
+}
+function start(){clearInterval(timer);timer=setInterval(()=>goTo(cur+1),DUR)}
+document.querySelector('.prev').addEventListener('click',()=>{goTo(cur-1);start()});
+document.querySelector('.next').addEventListener('click',()=>{goTo(cur+1);start()});
+dots.forEach((d,i)=>d.addEventListener('click',()=>{goTo(i);start()}));
+goTo(0);start();
+
+function openModal(title, tag, img, desc) {
+  document.getElementById('gmodal-title').textContent = title;
+  document.getElementById('gmodal-tag').textContent = tag;
+  document.getElementById('gmodal-img').src = img;
+  document.getElementById('gmodal-img').alt = title;
+  document.getElementById('gmodal-desc').textContent = desc;
+  document.getElementById('gmodal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(e) {
+  if (e.target.id === 'gmodal') {
+    document.getElementById('gmodal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.getElementById('gmodal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
+
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
