@@ -521,13 +521,28 @@ footer a:hover{color:var(--red)}
     </div>
     <div class="revc">
       <div class="revs">★★★★★</div>
-      <p class="revt">"I já mohu vřele doporučit Blaničku Slavíkovou a její cestovní agenturu. Když jsem v lednu řešila dárek k mamciným narozeninám, oslovila jsem právě Blaničku — výběr možností byl velký. Volba padla na mou vysněnou Madeiru. Blani děkujeme a na září se opět přihlásím!"</p>
-      <div class="reva"><div class="revav">M</div><div><div class="revn">Martina Nejtková</div><div class="revsrc">Google recenze · před 2 dny</div></div></div>
+      <p class="revt">"V agentuře CABS najdete individuální přístup a ušetří vám plno času, ve finále i peněz při výběru vhodné dovolené. Velmi doporučuji."</p>
+      <div class="reva"><div class="revav">J</div><div><div class="revn">Jani Ha</div><div class="revsrc">Google recenze · před 2 měsíci</div></div></div>
     </div>
     <div class="revc">
       <div class="revs">★★★★★</div>
-      <p class="revt">"Ráda bych doporučila Blanku Slavíkovou a její cestovní agenturu. Díky ní jsem zažila opravdu skvělou dovolenou v Egyptě, kterou mi perfektně vybrala na míru. Je vidět, že svou práci dělá s nadšením. Pokud přemýšlíte nad dovolenou, určitě se na ni obraťte!"</p>
+      <p class="revt">"I já mohu vřele doporučit Blaničku Slavíkovou a její cestovní agenturu. Výběr možností byl velký, volba padla na mou vysněnou Madeiru. Blanka vše s velkou ochotou připravila. Blani děkujeme a na září se opět přihlásím!"</p>
+      <div class="reva"><div class="revav">M</div><div><div class="revn">Martina Nejtková</div><div class="revsrc">Google recenze · před týdnem</div></div></div>
+    </div>
+    <div class="revc">
+      <div class="revs">★★★★★</div>
+      <p class="revt">"Ráda bych doporučila Blanku Slavíkovou a její cestovní agenturu. Díky ní jsem zažila opravdu skvělou dovolenou v Egyptě, kterou mi perfektně vybrala na míru. Pokud přemýšlíte nad dovolenou, určitě se na ni obraťte!"</p>
       <div class="reva"><div class="revav">M</div><div><div class="revn">Martina Yilmaz Jelínková</div><div class="revsrc">Facebook recenze · 16. dubna</div></div></div>
+    </div>
+    <div class="revc">
+      <div class="revs">★★★★★</div>
+      <p class="revt">"Velmi doporučuji služby paní Blanky při výběru dovolené. Potřebovala jsem odjet narychlo s malými dětmi a neměla jsem prostor hledat sama vhodný pobyt. Paní Blanka byla ochotná, pohotová a vybrala nám naprosto skvělé místo. Pobyt jsme si s dětmi náramně užili. Tímto moc děkuji a ráda se na vás obrátím zase příště."</p>
+      <div class="reva"><div class="revav">M</div><div><div class="revn">Martina Ká</div><div class="revsrc">Google recenze · před týdnem</div></div></div>
+    </div>
+    <div class="revc">
+      <div class="revs">★★★★★</div>
+      <p class="revt">"Rády bychom poděkovaly paní Blance Slavíkové za skvělou pomoc při výběru dovolené. Pečlivě s námi prošla nabídky, zkontrolovala recenze hotelů a doporučila variantu, která nejlépe odpovídala našim představám. Oceňujeme její vstřícný a profesionální přístup. Služby paní Slavíkové můžeme jedině doporučit."</p>
+      <div class="reva"><div class="revav">B</div><div><div class="revn">Body-Balance</div><div class="revsrc">Google recenze · před měsícem</div></div></div>
     </div>
   </div>
 </section>
@@ -581,7 +596,6 @@ footer a:hover{color:var(--red)}
     </div>
     <div class="reveal">
       <form class="cform" action="https://formspree.io/f/mvznaygy" method="POST">
-        <input type="hidden" name="_next" value="https://www.ca-bs.cz"/>
         <div class="frow">
           <div class="fg"><label>Jméno</label><input type="text" name="jmeno" placeholder="Jana Nováková" required/></div>
           <div class="fg"><label>Telefon</label><input type="tel" name="telefon" placeholder="+420 774 344 576"/></div>
@@ -601,7 +615,13 @@ footer a:hover{color:var(--red)}
           </select>
         </div>
         <div class="fg"><label>Vaše přání</label><textarea name="prani" placeholder="Kam chcete jet, kdy, kolik vás bude, co máte rádi…"></textarea></div>
-        <button type="submit" class="btnsub">ODESLAT POPTÁVKU →</button>
+        <button type="submit" class="btnsub" id="formBtn">ODESLAT POPTÁVKU →</button>
+        <div id="form-success" style="display:none;margin-top:1rem;padding:1rem 1.4rem;background:rgba(255,255,255,.08);border-left:3px solid #4caf50;color:rgba(255,255,255,.9);font-size:.88rem;letter-spacing:.04em;line-height:1.6">
+          ✓ Děkujeme za poptávku! Blanka vás brzy kontaktuje.
+        </div>
+        <div id="form-error" style="display:none;margin-top:1rem;padding:1rem 1.4rem;background:rgba(217,77,61,.2);border-left:3px solid var(--red);color:rgba(255,255,255,.9);font-size:.88rem;letter-spacing:.04em;line-height:1.6">
+          ✗ Něco se nepovedlo. Napište přímo na info-cabs@email.cz
+        </div>
       </form>
     </div>
   </div>
@@ -662,6 +682,35 @@ document.addEventListener('keydown', e => {
     document.body.style.overflow = '';
   }
 });
+
+const cabsForm = document.querySelector('.cform');
+if (cabsForm) {
+  cabsForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('formBtn');
+    btn.textContent = 'Odesílám...';
+    btn.disabled = true;
+    try {
+      const res = await fetch(cabsForm.action, {
+        method: 'POST',
+        body: new FormData(cabsForm),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        cabsForm.reset();
+        document.getElementById('form-success').style.display = 'block';
+        document.getElementById('form-error').style.display = 'none';
+        btn.textContent = 'ODESLÁNO ✓';
+      } else {
+        throw new Error();
+      }
+    } catch {
+      document.getElementById('form-error').style.display = 'block';
+      btn.textContent = 'ODESLAT POPTÁVKU →';
+      btn.disabled = false;
+    }
+  });
+}
 
 const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
