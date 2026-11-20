@@ -217,6 +217,29 @@ h1 .ac{color:var(--red)}
 .btnsub{background:var(--red);color:var(--white);border:none;padding:1rem 2.8rem;font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;align-self:flex-start;transition:background .2s,transform .15s}
 .btnsub:hover{background:var(--rd);transform:translateY(-2px)}
 
+/* LAST MINUTE + HLÍDAČ */
+.lmgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1.4rem;margin-bottom:2.5rem}
+.lmgrid:empty{display:none}
+.lmcard{background:var(--blue);color:#fff;display:flex;flex-direction:column}
+.lmcard img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.lmcard-b{padding:1.1rem 1.2rem 1.3rem;display:flex;flex-direction:column;gap:.35rem;flex:1}
+.lmcard-t{font-size:.63rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+.lmcard-n{font-family:'Anton',sans-serif;font-size:1.25rem;letter-spacing:.04em;line-height:1.2}
+.lmcard-d{font-size:.82rem;color:rgba(255,255,255,.7);line-height:1.5}
+.lmcard-btn{margin-top:auto;padding-top:.8rem}
+.lmcard-btn a{display:inline-block;background:var(--red);color:#fff;padding:.6rem 1.2rem;font-size:.78rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none}
+.hlidac{background:var(--blue);padding:2.4rem;margin-bottom:2.5rem;display:grid;grid-template-columns:1fr 1.1fr;gap:2.5rem;align-items:center}
+.hlidac h3{font-family:'Anton',sans-serif;font-size:1.9rem;letter-spacing:.05em;color:#fff;line-height:1.15;margin-bottom:.8rem}
+.hlidac p{font-size:.9rem;color:rgba(255,255,255,.75);line-height:1.7}
+.hlidac form{display:flex;flex-direction:column;gap:.9rem}
+.hlidac-row{display:flex;gap:.8rem;flex-wrap:wrap}
+.hlidac-row input[type=email]{flex:1;min-width:200px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;padding:.85rem 1rem;font-family:'Outfit',sans-serif;font-size:.87rem;outline:none}
+.hlidac-row input[type=email]:focus{border-color:var(--red)}
+.hlidac-row input::placeholder{color:rgba(255,255,255,.4)}
+.hlidac-ok{display:none;padding:.9rem 1.2rem;border-left:3px solid #4caf50;background:rgba(255,255,255,.08);color:#fff;font-size:.88rem;line-height:1.6}
+.fg select option[value=""]{color:#999}
+@media(max-width:960px){.hlidac{grid-template-columns:1fr;padding:1.6rem}}
+
 /* FOOTER */
 footer{background:#0e1e3d;color:rgba(255,255,255,.3);padding:2.2rem 5rem;display:flex;align-items:center;justify-content:space-between;font-size:.76rem;letter-spacing:.05em}
 footer img{height:28px;filter:brightness(0) invert(1);opacity:.4}
@@ -325,15 +348,15 @@ footer a:hover{color:var(--red)}
       <p><strong>Moje služby jsou pro vás zdarma.</strong> Platí mě cestovní kancelář — vy nezaplatíte ani korunu navíc.</p>
     </div>
     <div class="hbtns">
-      <a class="btnr" href="#contact">Nezávazná poptávka</a>
+      <a class="btnr" href="#contact">Chci 3 hotely na výběr</a>
       <a class="btng" href="#why">Jak to funguje</a>
     </div>
   </div>
   <div class="hright">
     <img src="hero.png" alt="CABS"/>
     <div class="hstat">
-      <div class="hstat-n">100%</div>
-      <div class="hstat-l">osobní přístup</div>
+      <div class="hstat-n">24 h</div>
+      <div class="hstat-l">a máte 3 tipy na hotel</div>
     </div>
   </div>
 </section>
@@ -346,7 +369,7 @@ footer a:hover{color:var(--red)}
       <div class="slide-tag">Kanárské ostrovy</div>
       <h2 class="slide-title">LANZAROTE,<br><span class="ac">ŠPANĚLSKO</span></h2>
       <p class="slide-desc">Vulkanická krajina, zlaté pláže a tyrkysové moře. Lanzarote okouzlí každého, kdo sem zavítá.</p>
-      <a href="#contact" class="slide-cta">Objednat konzultaci</a>
+      <a href="#contact" class="slide-cta">Chci nabídku na míru</a>
     </div>
   </div>
   <div class="slide">
@@ -356,7 +379,7 @@ footer a:hover{color:var(--red)}
       <div class="slide-tag">Středomoří</div>
       <h2 class="slide-title">RIMINI,<br><span class="ac">ITÁLIE</span></h2>
       <p class="slide-desc">Písečné pláže, italská kuchyně a živá atmosféra. Rimini — klasická dovolená u moře s italským šarmem.</p>
-      <a href="#contact" class="slide-cta">Objednat konzultaci</a>
+      <a href="#contact" class="slide-cta">Chci nabídku na míru</a>
     </div>
   </div>
   <div class="slide">
@@ -366,7 +389,7 @@ footer a:hover{color:var(--red)}
       <div class="slide-tag">Atlantický oceán</div>
       <h2 class="slide-title">MADEIRA,<br><span class="ac">PORTUGALSKO</span></h2>
       <p class="slide-desc">Zelený ostrov věčného jara. Úchvatná příroda, dramatické útesy a kouzelná atmosféra Funchalu.</p>
-      <a href="#contact" class="slide-cta">Objednat konzultaci</a>
+      <a href="#contact" class="slide-cta">Chci nabídku na míru</a>
     </div>
   </div>
   <div class="slide">
@@ -376,7 +399,7 @@ footer a:hover{color:var(--red)}
       <div class="slide-tag">Středomoří</div>
       <h2 class="slide-title">MALLORCA,<br><span class="ac">ŠPANĚLSKO</span></h2>
       <p class="slide-desc">Zlaté pláže, skryté zátoky a španělská pohoda. Ideální pro rodiny i páry hledající odpočinek.</p>
-      <a href="#contact" class="slide-cta">Objednat konzultaci</a>
+      <a href="#contact" class="slide-cta">Chci nabídku na míru</a>
     </div>
   </div>
   <button class="sarrow prev">&#8592;</button>
@@ -581,9 +604,37 @@ footer a:hover{color:var(--red)}
 
 <!-- FACEBOOK -->
 <section id="facebook" class="sp" style="background:var(--off)">
-  <div class="stag reveal">Sledujte nás</div>
+  <div class="stag reveal">Last minute</div>
   <h2 class="srv-h reveal" style="color:var(--blue)">AKTUÁLNÍ NABÍDKY<br>A <span class="ac">LAST MINUTE</span></h2>
-  <p class="reveal" style="font-size:.95rem;color:rgba(32,71,144,.65);margin-bottom:2.5rem;max-width:560px;line-height:1.75">Sledujte naši Facebook stránku — pravidelně sdílíme last minute nabídky, tipy na dovolené a novinky z destinací.</p>
+  <p class="reveal" style="font-size:.95rem;color:rgba(32,71,144,.65);margin-bottom:2.5rem;max-width:560px;line-height:1.75">Last minute zájezdy mizí za pár dní, někdy hodin. Nejnovější nabídky najdete tady a v Hlídači last minute vám je pošlu rovnou do e-mailu.</p>
+
+  <!-- AKTUÁLNÍ LM NABÍDKY: sem přidávat karty (nejnovější první), staré s prošlým termínem mazat.
+       Šablona jedné karty:
+       <div class="lmcard"><img src="lm-NAZEV.jpg" alt="Destinace"/><div class="lmcard-b"><div class="lmcard-t">Termín · např. 3.–10. 12.</div><div class="lmcard-n">DESTINACE</div><div class="lmcard-d">Hotel, strava, odlet, cena od …</div><div class="lmcard-btn"><a href="#contact" data-lm="Destinace – termín">Chci tuhle nabídku</a></div></div></div>
+  -->
+  <div class="lmgrid reveal" id="lm-list"></div>
+
+  <div class="hlidac reveal" id="hlidac">
+    <div>
+      <h3>HLÍDAČ LAST MINUTE</h3>
+      <p>Pošlu vám nové last minute dřív než na sociální sítě. Žádné spamování, jen výběr, který stojí za pozornost. Odhlásit se můžete kdykoli.</p>
+    </div>
+    <form class="ajaxform" action="https://formspree.io/f/mvznaygy" method="POST">
+      <input type="hidden" name="typ" value="Hlídač last minute"/>
+      <input type="hidden" name="zdroj_stranky" class="js-zdroj"/>
+      <div class="hlidac-row">
+        <input type="email" name="email" placeholder="Váš e-mail" required/>
+        <button type="submit" class="btnsub">Chci hlídat</button>
+      </div>
+      <div class="fg" style="flex-direction:row;align-items:flex-start;gap:.8rem">
+        <input type="checkbox" id="hl-consent" name="souhlas_newsletter" required style="width:18px;height:18px;flex-shrink:0;margin-top:2px;accent-color:var(--red);cursor:pointer"/>
+        <label for="hl-consent" style="font-size:.78rem;color:rgba(255,255,255,.65);line-height:1.6;cursor:pointer;text-transform:none;letter-spacing:0">Souhlasím se zasíláním last minute nabídek na e-mail.
+          <a href="#gdpr" onclick="document.getElementById('gdpr-modal').style.display='flex';return false;" style="color:var(--red);text-decoration:underline">Zásady ochrany osobních údajů.</a></label>
+      </div>
+      <div class="hlidac-ok">✓ Hotovo, nové last minute vám budu posílat na e-mail.</div>
+    </form>
+  </div>
+
   <div class="reveal" style="display:flex;flex-wrap:wrap;gap:2rem;align-items:flex-start">
     <div class="fb-page"
       data-href="https://www.facebook.com/profile.php?id=61577892062099"
@@ -597,8 +648,8 @@ footer a:hover{color:var(--red)}
     </div>
     <div style="flex:1;min-width:260px">
       <div style="background:var(--blue);padding:2rem;margin-bottom:1rem">
-        <div style="font-family:'Outfit',sans-serif;font-size:1rem;font-weight:500;color:white;margin-bottom:.5rem;letter-spacing:.1em;text-transform:uppercase">📢 LAST MINUTE</div>
-        <p style="font-size:.85rem;color:rgba(255,255,255,.7);line-height:1.6">Nejnovější last minute nabídky zveřejňuji pravidelně ve stories a jako příspěvky. Sledujte stránku ať vám nic neunikne!</p>
+        <div style="font-family:'Outfit',sans-serif;font-size:1rem;font-weight:500;color:white;margin-bottom:.5rem;letter-spacing:.1em;text-transform:uppercase">📢 FACEBOOK</div>
+        <p style="font-size:.85rem;color:rgba(255,255,255,.7);line-height:1.6">Last minute a tipy z destinací sdílím i na Facebooku, ve stories a v příspěvcích.</p>
         <a href="https://www.facebook.com/profile.php?id=61577892062099" target="_blank" style="display:inline-flex;align-items:center;gap:.6rem;background:var(--red);color:white;padding:.75rem 1.6rem;font-family:'Outfit',sans-serif;font-size:.85rem;font-weight:500;text-decoration:none;margin-top:1.2rem;letter-spacing:.1em;text-transform:uppercase">👍 Sledovat stránku</a>
       </div>
       <div style="background:var(--blue);padding:2rem;margin-top:1rem">
@@ -618,7 +669,7 @@ footer a:hover{color:var(--red)}
       <p class="cond">Zavolejte, napište nebo se stavte osobně. Žádný chatbot — jen Blanka, která vám opravdu poradí.</p>
       <div class="conitems">
         <div class="ci"><div class="ci-ic">📞</div><div><div class="ci-l">Telefon</div><div class="ci-v"><a href="tel:+420774344576">+420 774 344 576</a></div></div></div>
-        <div class="ci"><div class="ci-ic">✉️</div><div><div class="ci-l">E-mail</div><div class="ci-v">info-cabs@email.cz</div></div></div>
+        <div class="ci"><div class="ci-ic">✉️</div><div><div class="ci-l">E-mail</div><div class="ci-v"><a href="mailto:info-cabs@email.cz">info-cabs@email.cz</a></div></div></div>
         <div class="ci"><div class="ci-ic">📍</div><div><div class="ci-l">Osobní schůzka</div><div class="ci-v">Dle domluvy</div></div></div>
       </div>
       <div class="soclinks">
@@ -628,11 +679,33 @@ footer a:hover{color:var(--red)}
     </div>
     <div class="reveal">
       <form class="cform" action="https://formspree.io/f/mvznaygy" method="POST">
+        <input type="hidden" name="typ" value="Poptávka z webu"/>
+        <input type="hidden" name="zdroj_stranky" class="js-zdroj"/>
+        <input type="hidden" name="lm_nabidka" id="lm-nabidka"/>
         <div class="frow">
           <div class="fg"><label>Jméno</label><input type="text" name="jmeno" placeholder="Jana Nováková" required/></div>
           <div class="fg"><label>Telefon</label><input type="tel" name="telefon" placeholder="+420 774 344 576"/></div>
         </div>
         <div class="fg"><label>E-mail</label><input type="email" name="email" placeholder="jana@email.cz" required/></div>
+        <div class="frow">
+          <div class="fg"><label>Kdy chcete jet</label><input type="text" name="termin" placeholder="např. červenec, 7–10 nocí"/></div>
+          <div class="fg"><label>Kolik vás pojede</label><input type="text" name="osoby" placeholder="např. 2 dospělí + 2 děti (5 a 8 let)"/></div>
+        </div>
+        <div class="frow">
+          <div class="fg"><label>Rozpočet</label><input type="text" name="rozpocet" placeholder="např. do 25 000 Kč na osobu"/></div>
+          <div class="fg">
+            <label>Odlet z</label>
+            <select name="letiste">
+              <option value="" disabled selected>Vyberte letiště</option>
+              <option>Praha</option>
+              <option>Brno</option>
+              <option>Ostrava</option>
+              <option>Vídeň</option>
+              <option>Bratislava</option>
+              <option>Jiné / nevadí</option>
+            </select>
+          </div>
+        </div>
         <div class="fg">
           <label>Typ zájezdu</label>
           <select name="typ_zajezdu">
@@ -646,19 +719,38 @@ footer a:hover{color:var(--red)}
             <option>Jiné</option>
           </select>
         </div>
-        <div class="fg"><label>Vaše přání</label><textarea name="prani" placeholder="Kam chcete jet, kdy, kolik vás bude, co máte rádi…"></textarea></div>
+        <div class="fg"><label>Co je pro vás důležité</label><textarea name="prani" placeholder="Kam chcete jet, co máte rádi, co naopak ne…"></textarea></div>
+        <div class="fg">
+          <label>Jak jste se o nás dozvěděli</label>
+          <select name="odkud_zna">
+            <option value="" disabled selected>Vyberte</option>
+            <option>Instagram</option>
+            <option>Facebook</option>
+            <option>Doporučení známých</option>
+            <option>Hlídač last minute (e-mail)</option>
+            <option>Google</option>
+            <option>Jinak</option>
+          </select>
+        </div>
         <div class="fg" style="flex-direction:row;align-items:flex-start;gap:.8rem">
           <input type="checkbox" id="gdpr-consent" name="souhlas_gdpr" required
             style="width:18px;height:18px;flex-shrink:0;margin-top:2px;accent-color:var(--red);cursor:pointer"/>
-          <label for="gdpr-consent" style="font-size:.78rem;color:rgba(255,255,255,.6);line-height:1.6;cursor:pointer">
+          <label for="gdpr-consent" style="font-size:.78rem;color:rgba(255,255,255,.6);line-height:1.6;cursor:pointer;text-transform:none;letter-spacing:0">
             Souhlasím se zpracováním osobních údajů za účelem vyřízení mé poptávky.
             <a href="#gdpr" onclick="document.getElementById('gdpr-modal').style.display='flex';return false;"
               style="color:var(--red);text-decoration:underline">Zásady ochrany osobních údajů.</a>
           </label>
         </div>
-        <button type="submit" class="btnsub" id="formBtn">ODESLAT POPTÁVKU →</button>
+        <div class="fg" style="flex-direction:row;align-items:flex-start;gap:.8rem">
+          <input type="checkbox" id="news-consent" name="souhlas_newsletter" value="ano"
+            style="width:18px;height:18px;flex-shrink:0;margin-top:2px;accent-color:var(--red);cursor:pointer"/>
+          <label for="news-consent" style="font-size:.78rem;color:rgba(255,255,255,.6);line-height:1.6;cursor:pointer;text-transform:none;letter-spacing:0">
+            Chci dostávat last minute nabídky na e-mail (Hlídač last minute). Nepovinné, odhlásit se můžu kdykoli.
+          </label>
+        </div>
+        <button type="submit" class="btnsub" id="formBtn">ODESLAT PŘÁNÍ →</button>
         <div id="form-success" style="display:none;margin-top:1rem;padding:1rem 1.4rem;background:rgba(255,255,255,.08);border-left:3px solid #4caf50;color:rgba(255,255,255,.9);font-size:.88rem;letter-spacing:.04em;line-height:1.6">
-          ✓ Děkujeme za poptávku! Blanka vás brzy kontaktuje.
+          ✓ Děkuji! Ozvu se vám co nejdřív, obvykle do 24 hodin, s třemi tipy na hotel.
         </div>
         <div id="form-error" style="display:none;margin-top:1rem;padding:1rem 1.4rem;background:rgba(217,77,61,.2);border-left:3px solid var(--red);color:rgba(255,255,255,.9);font-size:.88rem;letter-spacing:.04em;line-height:1.6">
           ✗ Něco se nepovedlo. Napište přímo na info-cabs@email.cz
@@ -669,7 +761,7 @@ footer a:hover{color:var(--red)}
 </section>
 
 <footer>
-  <span>© 2025 CABS · Blanka Slavíková · info-cabs@email.cz</span>
+  <span>© 2026 CABS · Blanka Slavíková · <a href="mailto:info-cabs@email.cz">info-cabs@email.cz</a></span>
   <div class="flinks">
     <a href="https://www.instagram.com/cestuj_s_blankou" target="_blank">Instagram</a>
     <a href="https://www.facebook.com/profile.php?id=61577892062099" target="_blank">Facebook</a>
@@ -747,11 +839,52 @@ if (cabsForm) {
       }
     } catch {
       document.getElementById('form-error').style.display = 'block';
-      btn.textContent = 'ODESLAT POPTÁVKU →';
+      btn.textContent = 'ODESLAT PŘÁNÍ →';
       btn.disabled = false;
     }
   });
 }
+
+// zdroj návštěvy (UTM) do skrytých polí formulářů
+(function(){
+  const q=new URLSearchParams(location.search);
+  const parts=['utm_source','utm_medium','utm_campaign'].map(k=>q.get(k)?k+'='+q.get(k):'').filter(Boolean);
+  let z=parts.join('&');
+  if(!z&&document.referrer){try{z='referrer='+new URL(document.referrer).hostname}catch(e){}}
+  document.querySelectorAll('.js-zdroj').forEach(i=>i.value=z||'přímý přístup');
+})();
+
+// tlačítko "Chci tuhle nabídku" předvyplní formulář
+document.addEventListener('click',function(e){
+  const a=e.target.closest('a[data-lm]');
+  if(!a)return;
+  const f=document.getElementById('lm-nabidka');
+  if(f)f.value=a.dataset.lm;
+  const sel=document.querySelector('select[name="typ_zajezdu"]');
+  if(sel)sel.value='Last minute';
+  const t=document.querySelector('textarea[name="prani"]');
+  if(t&&!t.value)t.value='Mám zájem o last minute: '+a.dataset.lm;
+});
+
+// Hlídač last minute (odeslání bez opuštění stránky)
+document.querySelectorAll('form.ajaxform').forEach(function(form){
+  form.addEventListener('submit',async function(e){
+    e.preventDefault();
+    const btn=form.querySelector('button[type=submit]');
+    const ok=form.querySelector('.hlidac-ok');
+    btn.disabled=true;
+    try{
+      const res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
+      if(!res.ok)throw new Error();
+      form.reset();
+      ok.style.display='block';
+      btn.textContent='Hotovo ✓';
+    }catch(err){
+      btn.disabled=false;
+      alert('Něco se nepovedlo. Napište prosím na info-cabs@email.cz');
+    }
+  });
+});
 
 const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
@@ -779,6 +912,7 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
     <div style="font-size:.85rem;color:rgba(255,255,255,.75);line-height:1.8">
       <p style="margin-bottom:1rem"><strong style="color:white">Správce osobních údajů:</strong><br>Blanka Slavíková, CABS Cestovní agentura<br>E-mail: info-cabs@email.cz | Tel: +420 774 344 576</p>
       <p style="margin-bottom:1rem"><strong style="color:white">Jaké údaje zpracováváme:</strong><br>Při odeslání kontaktního formuláře zpracováváme vaše jméno, e-mail, telefon a obsah zprávy. Tyto údaje jsou použity výhradně pro účely odpovědi na vaši poptávku.</p>
+      <p style="margin-bottom:1rem"><strong style="color:white">Hlídač last minute (e-mailing):</strong><br>Pokud se přihlásíte k odběru, použiji váš e-mail k zasílání last minute nabídek. Souhlas je dobrovolný a můžete ho kdykoli odvolat odkazem v každém e-mailu nebo zprávou na info-cabs@email.cz. E-mail uchovávám do odvolání souhlasu.</p>
       <p style="margin-bottom:1rem"><strong style="color:white">Jak dlouho údaje uchováváme:</strong><br>Osobní údaje uchováváme po dobu nezbytně nutnou pro vyřízení vaší poptávky, nejdéle 2 roky.</p>
       <p style="margin-bottom:1rem"><strong style="color:white">Cookies:</strong><br>Tento web používá pouze technické cookies nezbytné pro správné fungování stránek a Facebook plugin pro zobrazení příspěvků z naší stránky.</p>
       <p style="margin-bottom:1rem"><strong style="color:white">Vaše práva:</strong><br>Máte právo na přístup k údajům, jejich opravu, výmaz nebo omezení zpracování. Žádost zašlete na info-cabs@email.cz.</p>
