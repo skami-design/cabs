@@ -240,6 +240,33 @@ h1 .ac{color:var(--red)}
 .fg select option[value=""]{color:#999}
 @media(max-width:960px){.hlidac{grid-template-columns:1fr;padding:1.6rem}}
 
+
+/* PROBLÉM, FAQ, REFERENCE */
+#problem{background:var(--white)}
+#about{background:var(--white)}
+#partners{background:var(--off)}
+#faq{background:var(--white)}
+.pgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:1.4rem;margin-bottom:3rem}
+.pcard{grid-column:span 2}
+.pcard:nth-child(n+4){grid-column:span 3}
+.pcard{background:var(--off);padding:2rem 1.8rem;border-left:4px solid var(--red)}
+.pq{font-family:'Anton',sans-serif;font-size:1.15rem;line-height:1.45;letter-spacing:.03em;color:var(--blue);margin-bottom:.8rem}
+.pcard p{font-size:.86rem;line-height:1.7;color:rgba(32,71,144,.65)}
+.pbridge{background:var(--blue);padding:2.4rem 2.6rem;display:flex;gap:2.5rem;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.pbridge p{font-size:1.05rem;line-height:1.7;color:rgba(255,255,255,.92);max-width:720px}
+.pbridge strong{color:#fff}
+.revtag{font-size:.63rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:.6rem}
+.rev-cta{margin-top:2.6rem;display:flex;gap:2rem;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--white);padding:1.8rem 2.2rem;border-left:4px solid var(--red)}
+.rev-cta p{font-size:1.02rem;color:var(--blue);font-weight:500}
+.faq{max-width:820px;display:flex;flex-direction:column;gap:.8rem}
+.faq details{border:1.5px solid rgba(32,71,144,.12);padding:1.2rem 1.5rem;background:var(--white)}
+.faq summary{cursor:pointer;font-weight:500;font-size:.98rem;color:var(--blue);list-style:none;display:flex;justify-content:space-between;gap:1rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';font-size:1.3rem;line-height:1;color:var(--red)}
+.faq details[open] summary::after{content:'−'}
+.faq details p{margin-top:.9rem;font-size:.9rem;line-height:1.75;color:rgba(32,71,144,.7)}
+@media(max-width:960px){.pgrid{grid-template-columns:1fr}.pcard,.pcard:nth-child(n+4){grid-column:auto}.pbridge,.rev-cta{padding:1.6rem}}
+
 /* FOOTER */
 footer{background:#0e1e3d;color:rgba(255,255,255,.3);padding:2.2rem 5rem;display:flex;align-items:center;justify-content:space-between;font-size:.76rem;letter-spacing:.05em}
 footer img{height:28px;filter:brightness(0) invert(1);opacity:.4}
@@ -329,10 +356,10 @@ footer a:hover{color:var(--red)}
 <nav>
   <a href="#home" class="nlogo"><img src="logo.png" alt="CABS"/></a>
   <ul class="nlinks" id="nlinks">
-    <li><a href="#why">Proč CABS</a></li>
+    <li><a href="#why">Jak to funguje</a></li>
+    <li><a href="#reviews">Reference</a></li>
     <li><a href="#about">O mně</a></li>
     <li><a href="#gallery">Destinace</a></li>
-    <li><a href="#reviews">Recenze</a></li>
     <li><a href="#facebook">Nabídky</a></li>
     <li><a href="#contact">Kontakt</a></li>
   </ul>
@@ -362,83 +389,88 @@ footer a:hover{color:var(--red)}
   </div>
 </section>
 
-<div id="slider">
-  <div class="slide active">
-    <img src="lanzarote.jpg" alt="Lanzarote"/>
-    <div class="slide-ov"></div>
-    <div class="slide-ct">
-      <div class="slide-tag">Kanárské ostrovy</div>
-      <h2 class="slide-title">LANZAROTE,<br><span class="ac">ŠPANĚLSKO</span></h2>
-      <p class="slide-desc">Vulkanická krajina, zlaté pláže a tyrkysové moře. Lanzarote okouzlí každého, kdo sem zavítá.</p>
-      <a href="#contact" class="slide-cta">Chci nabídku na míru</a>
-    </div>
+<section id="problem" class="sp">
+  <div class="stag reveal">Znáte to?</div>
+  <h2 class="srv-h reveal">DOVOLENÁ MÁ BÝT TĚŠENÍ,<br><span class="ac">NE DALŠÍ ÚKOL</span></h2>
+  <div class="pgrid reveal">
+    <div class="pcard"><div class="pq">„Večery trávím porovnáváním hotelů na pěti webech a pořád nevím, který je ten pravý.“</div><p>Nabídek je tolik, že výběr nejde zvládnout. Každý web říká, že právě jeho hotel je nejlepší.</p></div>
+    <div class="pcard"><div class="pq">„Fotky vypadají skvěle. Ale jaký ten hotel doopravdy je?“</div><p>Strach, že se na místě ukáže něco jiného, než slibovala fotka.</p></div>
+    <div class="pcard"><div class="pq">„Chci odjet brzo a nemám čas hledat.“</div><p>Práce, děti, málo času. Last minute nabídky mizí rychle a snadno se v nich ztratíte.</p></div>
+    <div class="pcard"><div class="pq">„Jedeme s dětmi. Nechci riskovat hotel, kde to nebude fungovat.“</div><p>S dětmi se špatný hotel pozná hned a na místě se to špatně napravuje.</p></div>
+    <div class="pcard"><div class="pq">„Nebude mě agentura stát navíc?“</div><p>Spousta lidí si myslí, že pomoc agentury se připlácí. Většinou se neplatí nic.</p></div>
   </div>
-  <div class="slide">
-    <img src="rimini.jpg" alt="Rimini"/>
-    <div class="slide-ov"></div>
-    <div class="slide-ct">
-      <div class="slide-tag">Středomoří</div>
-      <h2 class="slide-title">RIMINI,<br><span class="ac">ITÁLIE</span></h2>
-      <p class="slide-desc">Písečné pláže, italská kuchyně a živá atmosféra. Rimini — klasická dovolená u moře s italským šarmem.</p>
-      <a href="#contact" class="slide-cta">Chci nabídku na míru</a>
-    </div>
+  <div class="pbridge reveal">
+    <p><strong>Tohle všechno za vás vyřeším.</strong> Vy mi řeknete termín, rozpočet a s kým jedete. Já najdu tři hotely, které sednou. Vás to nestojí nic.</p>
+    <a class="btnr" href="#contact">Chci 3 hotely na výběr</a>
   </div>
-  <div class="slide">
-    <img src="madeira.jpg" alt="Madeira"/>
-    <div class="slide-ov"></div>
-    <div class="slide-ct">
-      <div class="slide-tag">Atlantický oceán</div>
-      <h2 class="slide-title">MADEIRA,<br><span class="ac">PORTUGALSKO</span></h2>
-      <p class="slide-desc">Zelený ostrov věčného jara. Úchvatná příroda, dramatické útesy a kouzelná atmosféra Funchalu.</p>
-      <a href="#contact" class="slide-cta">Chci nabídku na míru</a>
-    </div>
-  </div>
-  <div class="slide">
-    <img src="mallorca.jpg" alt="Mallorca"/>
-    <div class="slide-ov"></div>
-    <div class="slide-ct">
-      <div class="slide-tag">Středomoří</div>
-      <h2 class="slide-title">MALLORCA,<br><span class="ac">ŠPANĚLSKO</span></h2>
-      <p class="slide-desc">Zlaté pláže, skryté zátoky a španělská pohoda. Ideální pro rodiny i páry hledající odpočinek.</p>
-      <a href="#contact" class="slide-cta">Chci nabídku na míru</a>
-    </div>
-  </div>
-  <button class="sarrow prev">&#8592;</button>
-  <button class="sarrow next">&#8594;</button>
-  <div class="sdots">
-    <button class="dot active"></button>
-    <button class="dot"></button>
-    <button class="dot"></button>
-    <button class="dot"></button>
-  </div>
-  <div class="sprogress" id="sp"></div>
-</div>
-
-<div class="mbar">
-  <div class="mtrack">
-    <span class="mitem">Řecko</span><span class="mitem">Chorvatsko</span><span class="mitem">Itálie</span><span class="mitem">Španělsko</span><span class="mitem">Turecko</span><span class="mitem">Kypr</span><span class="mitem">Malta</span><span class="mitem">Maroko</span><span class="mitem">Portugalsko</span><span class="mitem">Egypt</span><span class="mitem">Řecko</span><span class="mitem">Chorvatsko</span><span class="mitem">Itálie</span><span class="mitem">Španělsko</span><span class="mitem">Turecko</span><span class="mitem">Kypr</span><span class="mitem">Malta</span><span class="mitem">Maroko</span><span class="mitem">Portugalsko</span><span class="mitem">Egypt</span>
-  </div>
-</div>
+</section>
 
 <section id="why">
   <div class="why-grid">
     <div class="reveal">
-      <div class="stag">Proč přes agenturu</div>
-      <h2 class="why-h">AGENTURA<br>PRO VÁS<br><span class="ac">ZDARMA</span></h2>
-      <p class="why-d">Tohle málokdo ví — pomůžu vám vybrat, zarezervuji a poradím. A nezaplatíte za to ani korunu navíc.</p>
-      <div class="why-hl"><p>Zaplatíte přesně tolik, kolik byste zaplatili přímo u CK. <strong>Mou odměnu platí CK — ne vy.</strong></p></div>
+      <div class="stag">Jak to funguje</div>
+      <h2 class="why-h">TŘI KROKY<br>A MÁTE<br><span class="ac">VYBRÁNO</span></h2>
       <div class="why-steps">
-        <div class="wstep"><div class="wstep-n">1</div><div class="wstep-t"><strong>Zavoláte nebo napíšete</strong><span>Řeknete mi kam chcete jet, kdy a co máte rádi</span></div></div>
-        <div class="wstep"><div class="wstep-n">2</div><div class="wstep-t"><strong>Porovnám nabídky za vás</strong><span>Prohledám nabídky od všech partnerských CK</span></div></div>
-        <div class="wstep"><div class="wstep-n">3</div><div class="wstep-t"><strong>Vy si vyberete a jedete</strong><span>Vše zařídím — od letenky po pojištění</span></div></div>
+        <div class="wstep"><div class="wstep-n">1</div><div class="wstep-t"><strong>Napíšete mi, co hledáte</strong><span>Termín, rozpočet, s kým jedete a co máte rádi. Zabere to dvě minuty.</span></div></div>
+        <div class="wstep"><div class="wstep-n">2</div><div class="wstep-t"><strong>Do 24 hodin dostanete tři tipy</strong><span>Porovnám nabídky všech partnerských CK a vyberu tři hotely včetně ceny.</span></div></div>
+        <div class="wstep"><div class="wstep-n">3</div><div class="wstep-t"><strong>Vyberete a jedete</strong><span>Rezervaci, letenky i pojištění vyřídím já. A během pobytu se vám ozvu.</span></div></div>
       </div>
+      <div class="why-hl" style="margin-top:2rem"><p><strong>Nic neplatíte.</strong> Zaplatíte přesně tolik, kolik byste zaplatili přímo u CK. Moji odměnu platí cestovní kancelář, ne vy.</p></div>
     </div>
     <div class="why-r reveal">
-      <div class="wcard"><div class="wcard-t">Porovnám za vás</div><p class="wcard-d">Mám přístup k nabídkám všech partnerských CK najednou. Ušetřím vám hodiny hledání.</p></div>
-      <div class="wcard"><div class="wcard-t">Znám hotely osobně</div><p class="wcard-d">Nedoporučuji naslepo. Destinace a hotely znám z vlastní zkušenosti.</p></div>
-      <div class="wcard"><div class="wcard-t">Jsem tu pro vás</div><p class="wcard-d">Telefonicky, e-mailem i osobně. Žádný chatbot — živý člověk, který vám poradí.</p></div>
-      <div class="wcard"><div class="wcard-t">Stejná cena, víc klidu</div><p class="wcard-d">Zaplatíte cenu z katalogu. Bez příplatků, bez skrytých poplatků.</p></div>
+      <div class="wcard"><div class="wcard-t">Tři hotely na míru</div><p class="wcard-d">Žádný katalog. Vybírám podle vašeho termínu, rozpočtu a toho, s kým jedete.</p></div>
+      <div class="wcard"><div class="wcard-t">Porovnání všech CK</div><p class="wcard-d">Mám přístup k nabídkám partnerských CK najednou. Ušetřím vám hodiny hledání.</p></div>
+      <div class="wcard"><div class="wcard-t">Kontrola recenzí hotelů</div><p class="wcard-d">Nedoporučuji naslepo. Hotely a destinace znám a recenze projdu za vás.</p></div>
+      <div class="wcard"><div class="wcard-t">Všechno vyřízeno</div><p class="wcard-d">Od letenky po pojištění. Nemusíte nic dohledávat ani vyplňovat.</p></div>
+      <div class="wcard"><div class="wcard-t">Živý člověk na telefonu</div><p class="wcard-d">Telefonicky, e-mailem i osobně. Žádný chatbot.</p></div>
     </div>
+  </div>
+</section>
+
+<section id="reviews" class="sp">
+  <div class="stag reveal">Reference</div>
+  <h2 class="rev-h reveal">LIDEM, KTEŘÍ SE<br>NA MĚ <span class="ac">OBRÁTILI</span></h2>
+  <div class="revg reveal">
+    <div class="revc">
+      <div class="revtag">Dovolená i péče během pobytu</div>
+      <div class="revs">★★★★★</div>
+      <p class="revt">"Blanko, moc děkuji za úžasnou dovolenou, vybrala si nám perfektní místo a my si to opravdu užili. Delegát byl příjemný, ochotný. Ubytování i jídlo super. A velmi děkuji i za průběžný zájem o nás během pobytu."</p>
+      <div class="reva"><div class="revav">V</div><div><div class="revn">Vlasta Picková</div><div class="revsrc">Google recenze</div></div></div>
+    </div>
+    <div class="revc">
+      <div class="revtag">Ušetřený čas i peníze</div>
+      <div class="revs">★★★★★</div>
+      <p class="revt">"V agentuře CABS najdete individuální přístup a ušetří vám plno času, ve finále i peněz při výběru vhodné dovolené. Velmi doporučuji."</p>
+      <div class="reva"><div class="revav">J</div><div><div class="revn">Jani Ha</div><div class="revsrc">Google recenze · před 2 měsíci</div></div></div>
+    </div>
+    <div class="revc">
+      <div class="revtag">Vysněná Madeira</div>
+      <div class="revs">★★★★★</div>
+      <p class="revt">"I já mohu vřele doporučit Blaničku Slavíkovou a její cestovní agenturu. Výběr možností byl velký, volba padla na mou vysněnou Madeiru. Blanka vše s velkou ochotou připravila. Blani děkujeme a na září se opět přihlásím!"</p>
+      <div class="reva"><div class="revav">M</div><div><div class="revn">Martina Nejtková</div><div class="revsrc">Google recenze · před týdnem</div></div></div>
+    </div>
+    <div class="revc">
+      <div class="revtag">Egypt na míru</div>
+      <div class="revs">★★★★★</div>
+      <p class="revt">"Ráda bych doporučila Blanku Slavíkovou a její cestovní agenturu. Díky ní jsem zažila opravdu skvělou dovolenou v Egyptě, kterou mi perfektně vybrala na míru. Pokud přemýšlíte nad dovolenou, určitě se na ni obraťte!"</p>
+      <div class="reva"><div class="revav">M</div><div><div class="revn">Martina Yilmaz Jelínková</div><div class="revsrc">Facebook recenze · 16. dubna</div></div></div>
+    </div>
+    <div class="revc">
+      <div class="revtag">Odjezd narychlo s dětmi</div>
+      <div class="revs">★★★★★</div>
+      <p class="revt">"Velmi doporučuji služby paní Blanky při výběru dovolené. Potřebovala jsem odjet narychlo s malými dětmi a neměla jsem prostor hledat sama vhodný pobyt. Paní Blanka byla ochotná, pohotová a vybrala nám naprosto skvělé místo. Pobyt jsme si s dětmi náramně užili. Tímto moc děkuji a ráda se na vás obrátím zase příště."</p>
+      <div class="reva"><div class="revav">M</div><div><div class="revn">Martina Ká</div><div class="revsrc">Google recenze · před týdnem</div></div></div>
+    </div>
+    <div class="revc">
+      <div class="revtag">Kontrola recenzí hotelů</div>
+      <div class="revs">★★★★★</div>
+      <p class="revt">"Rády bychom poděkovaly paní Blance Slavíkové za skvělou pomoc při výběru dovolené. Pečlivě s námi prošla nabídky, zkontrolovala recenze hotelů a doporučila variantu, která nejlépe odpovídala našim představám. Oceňujeme její vstřícný a profesionální přístup. Služby paní Slavíkové můžeme jedině doporučit."</p>
+      <div class="reva"><div class="revav">B</div><div><div class="revn">Body-Balance</div><div class="revsrc">Google recenze · před měsícem</div></div></div>
+    </div>
+  </div>
+  <div class="rev-cta reveal">
+    <p>Napište mi, co hledáte. Do 24 hodin máte tři tipy na hotel.</p>
+    <a class="btnr" href="#contact">Chci 3 hotely na výběr</a>
   </div>
 </section>
 
@@ -454,8 +486,8 @@ footer a:hover{color:var(--red)}
     </div>
   </div>
   <div class="acont reveal">
-    <div class="stag">O mně</div>
-    <h2 class="about-h">CESTOVÁNÍ<br>JAKO ŽIVOTNÍ<br><span class="ac">VÁŠEŇ</span></h2>
+    <div class="stag">Proč právě já</div>
+    <h2 class="about-h">DOPORUČUJI JEN<br>TO, CO <span class="ac">ZNÁM</span></h2>
     <p>Celý život jsem milovala cestování a pomáhala přátelům a rodině vybrat tu správnou dovolenou. Věděla jsem, kam jet, který hotel stojí za to a co si rozhodně nenechat ujít. Bavilo mě to víc než cokoliv jiného.</p>
     <p>V 60 letech jsem se rozhodla udělat z vášně podnikání. <strong>CABS vzniklo proto, aby každý mohl mít svého osobního cestovního poradce</strong> — bez fronty, bez formulářů, s lidským přístupem.</p>
     <p>Sama jsem navštívila nespočet destinací — <strong>Španělsko, Itálii, Turecko, Tunisko, SAE, Francii, Dánsko</strong> a mnoho dalších. Doporučuji jen místa, která důvěrně znám z vlastní zkušenosti.</p>
@@ -556,50 +588,15 @@ footer a:hover{color:var(--red)}
   </div>
 </section>
 
-<section id="services" class="sp">
-  <div class="stag reveal">Co nabízím</div>
-  <h2 class="srv-h reveal">KOMPLETNÍ PÉČE<br>OD <span class="ac">A DO Z</span></h2>
-  <div class="srvg reveal">
-    <div class="srvc"><div class="srvt">Letecké zájezdy</div><p class="srvd">Letenky, transfery, pojištění — vše zařídím za vás. Porovnám nabídky všech CK a najdu tu nejlepší.</p></div>
-    <div class="srvc"><div class="srvt">Dovolená na míru</div><p class="srvd">Řeknete mi, co máte rádi — a já sestavím itinerář přesně pro vás. Žádné šablony, každá dovolená je jedinečná.</p></div>
-    <div class="srvc"><div class="srvt">Ubytování & hotely</div><p class="srvd">Od útulných penzionů po all-inclusive resorty. Znám hotely osobně a doporučím jen to, co stojí za to.</p></div>
-  </div>
-</section>
-
-<section id="reviews" class="sp">
-  <div class="stag reveal">Spokojení zákazníci</div>
-  <h2 class="rev-h reveal">CO ŘÍKAJÍ<br><span class="ac">OSTATNÍ</span></h2>
-  <div class="revg reveal">
-    <div class="revc">
-      <div class="revs">★★★★★</div>
-      <p class="revt">"Blanko, moc děkuji za úžasnou dovolenou, vybrala si nám perfektní místo a my si to opravdu užili. Delegát byl příjemný, ochotný. Ubytování i jídlo super. A velmi děkuji i za průběžný zájem o nás během pobytu."</p>
-      <div class="reva"><div class="revav">V</div><div><div class="revn">Vlasta Picková</div><div class="revsrc">Google recenze</div></div></div>
-    </div>
-    <div class="revc">
-      <div class="revs">★★★★★</div>
-      <p class="revt">"V agentuře CABS najdete individuální přístup a ušetří vám plno času, ve finále i peněz při výběru vhodné dovolené. Velmi doporučuji."</p>
-      <div class="reva"><div class="revav">J</div><div><div class="revn">Jani Ha</div><div class="revsrc">Google recenze · před 2 měsíci</div></div></div>
-    </div>
-    <div class="revc">
-      <div class="revs">★★★★★</div>
-      <p class="revt">"I já mohu vřele doporučit Blaničku Slavíkovou a její cestovní agenturu. Výběr možností byl velký, volba padla na mou vysněnou Madeiru. Blanka vše s velkou ochotou připravila. Blani děkujeme a na září se opět přihlásím!"</p>
-      <div class="reva"><div class="revav">M</div><div><div class="revn">Martina Nejtková</div><div class="revsrc">Google recenze · před týdnem</div></div></div>
-    </div>
-    <div class="revc">
-      <div class="revs">★★★★★</div>
-      <p class="revt">"Ráda bych doporučila Blanku Slavíkovou a její cestovní agenturu. Díky ní jsem zažila opravdu skvělou dovolenou v Egyptě, kterou mi perfektně vybrala na míru. Pokud přemýšlíte nad dovolenou, určitě se na ni obraťte!"</p>
-      <div class="reva"><div class="revav">M</div><div><div class="revn">Martina Yilmaz Jelínková</div><div class="revsrc">Facebook recenze · 16. dubna</div></div></div>
-    </div>
-    <div class="revc">
-      <div class="revs">★★★★★</div>
-      <p class="revt">"Velmi doporučuji služby paní Blanky při výběru dovolené. Potřebovala jsem odjet narychlo s malými dětmi a neměla jsem prostor hledat sama vhodný pobyt. Paní Blanka byla ochotná, pohotová a vybrala nám naprosto skvělé místo. Pobyt jsme si s dětmi náramně užili. Tímto moc děkuji a ráda se na vás obrátím zase příště."</p>
-      <div class="reva"><div class="revav">M</div><div><div class="revn">Martina Ká</div><div class="revsrc">Google recenze · před týdnem</div></div></div>
-    </div>
-    <div class="revc">
-      <div class="revs">★★★★★</div>
-      <p class="revt">"Rády bychom poděkovaly paní Blance Slavíkové za skvělou pomoc při výběru dovolené. Pečlivě s námi prošla nabídky, zkontrolovala recenze hotelů a doporučila variantu, která nejlépe odpovídala našim představám. Oceňujeme její vstřícný a profesionální přístup. Služby paní Slavíkové můžeme jedině doporučit."</p>
-      <div class="reva"><div class="revav">B</div><div><div class="revn">Body-Balance</div><div class="revsrc">Google recenze · před měsícem</div></div></div>
-    </div>
+<section id="faq" class="sp">
+  <div class="stag reveal">Časté otázky</div>
+  <h2 class="srv-h reveal">CO SE LIDÉ<br><span class="ac">NEJČASTĚJI PTAJÍ</span></h2>
+  <div class="faq reveal">
+    <details><summary>Opravdu mě to nestojí nic navíc?</summary><p>Ne. Zaplatíte cenu, kterou by měla cestovní kancelář v katalogu. Mou odměnu platí cestovní kancelář, ne vy.</p></details>
+    <details><summary>Jak rychle se vám ozvete?</summary><p>Obvykle do 24 hodin, s třemi konkrétními tipy na hotel. Při odjezdu narychlo mi můžete rovnou zavolat.</p></details>
+    <details><summary>Co když mi žádný ze tří tipů nesedne?</summary><p>Napíšete mi, co vám vadí, a upravím zadání. Nic vás k ničemu nezavazuje.</p></details>
+    <details><summary>Co když se mi po zaplacení něco změní?</summary><p>Podmínky změn a storna určuje konkrétní cestovní kancelář. Před rezervací vám je srozumitelně vysvětlím a doporučím vhodné pojištění.</p></details>
+    <details><summary>Musím k vám osobně?</summary><p>Ne. Vše se dá vyřídit telefonem nebo e-mailem. Pokud chcete, můžeme se sejít osobně, dle domluvy.</p></details>
   </div>
 </section>
 
@@ -666,8 +663,8 @@ footer a:hover{color:var(--red)}
   <div class="cong">
     <div class="reveal">
       <div class="stag">Pojďme se spojit</div>
-      <h2 class="con-h">NAPLÁNUJME<br>VAŠI <span class="ac">VYSNĚNOU</span><br>CESTU</h2>
-      <p class="cond">Zavolejte, napište nebo se stavte osobně. Žádný chatbot — jen Blanka, která vám opravdu poradí.</p>
+      <h2 class="con-h">NAPIŠTE MI,<br><span class="ac">KAM CHCETE</span></h2>
+      <p class="cond">Vyplnění zabere dvě minuty. Do 24 hodin máte tři tipy na hotel, zdarma a nezávazně. Můžete i zavolat nebo se stavit osobně.</p>
       <div class="conitems">
         <div class="ci"><div class="ci-ic">📞</div><div><div class="ci-l">Telefon</div><div class="ci-v"><a href="tel:+420774344576">+420 774 344 576</a></div></div></div>
         <div class="ci"><div class="ci-ic">✉️</div><div><div class="ci-l">E-mail</div><div class="ci-v"><a href="mailto:info-cabs@email.cz">info-cabs@email.cz</a></div></div></div>
@@ -771,6 +768,7 @@ footer a:hover{color:var(--red)}
 </footer>
 
 <script>
+if(document.querySelectorAll('.slide').length){
 const slides=document.querySelectorAll('.slide');
 const dots=document.querySelectorAll('.dot');
 const progress=document.getElementById('sp');
@@ -794,6 +792,7 @@ document.querySelector('.prev').addEventListener('click',()=>{goTo(cur-1);start(
 document.querySelector('.next').addEventListener('click',()=>{goTo(cur+1);start()});
 dots.forEach((d,i)=>d.addEventListener('click',()=>{goTo(i);start()}));
 goTo(0);start();
+}
 
 function openModal(title, tag, img, desc) {
   document.getElementById('gmodal-title').textContent = title;
