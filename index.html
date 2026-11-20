@@ -219,15 +219,15 @@ h1 .ac{color:var(--red)}
 .btnsub:hover{background:var(--rd);transform:translateY(-2px)}
 
 /* LAST MINUTE + HLÍDAČ */
-.lmgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1.4rem;margin-bottom:2.5rem}
+.lmgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,300px));gap:1.4rem;margin-bottom:2.5rem}
 .lmgrid:empty{display:none}
 .lmcard{background:var(--blue);color:#fff;display:flex;flex-direction:column}
-.lmcard img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
-.lmcard-b{padding:1.1rem 1.2rem 1.3rem;display:flex;flex-direction:column;gap:.35rem;flex:1}
+.lmcard img{width:100%;height:auto;display:block}
+.lmcard-b{padding:1rem 1.2rem 1.2rem;display:flex;flex-direction:column;flex:1}
 .lmcard-t{font-size:.63rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
 .lmcard-n{font-family:'Oswald',sans-serif;font-weight:500;font-size:1.2rem;letter-spacing:.05em;line-height:1.25}
 .lmcard-d{font-size:.82rem;color:rgba(255,255,255,.7);line-height:1.5}
-.lmcard-btn{margin-top:auto;padding-top:.8rem}
+.lmcard-btn a{display:block;text-align:center}
 .lmcard-btn a{display:inline-block;background:var(--red);color:#fff;padding:.6rem 1.2rem;font-size:.78rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none}
 .hlidac{background:var(--blue);padding:2.4rem;margin-bottom:2.5rem;display:grid;grid-template-columns:1fr 1.1fr;gap:2.5rem;align-items:center}
 .hlidac h3{font-family:'Oswald',sans-serif;font-size:1.9rem;color:#fff;line-height:1.15;margin-bottom:.8rem;font-weight:600;letter-spacing:.045em}
@@ -607,10 +607,10 @@ footer a:hover{color:var(--red)}
   <p class="reveal" style="font-size:.95rem;color:rgba(32,71,144,.65);margin-bottom:2.5rem;max-width:560px;line-height:1.75">Last minute zájezdy mizí za pár dní, někdy hodin. Nejnovější nabídky najdete tady a v Hlídači last minute vám je pošlu rovnou do e-mailu.</p>
 
   <!-- AKTUÁLNÍ LM NABÍDKY: sem přidávat karty (nejnovější první), staré s prošlým termínem mazat.
-       Šablona jedné karty:
-       <div class="lmcard"><img src="lm-NAZEV.jpg" alt="Destinace"/><div class="lmcard-b"><div class="lmcard-t">Termín · např. 3.–10. 12.</div><div class="lmcard-n">DESTINACE</div><div class="lmcard-d">Hotel, strava, odlet, cena od …</div><div class="lmcard-btn"><a href="#contact" data-lm="Destinace – termín">Chci tuhle nabídku</a></div></div></div>
+       Šablona jedné karty (plakát = celý LM příběh, tlačítko předvyplní formulář):
+       <div class="lmcard"><img src="lm-NAZEV.jpg" alt="Destinace, termín"/><div class="lmcard-b"><div class="lmcard-btn"><a href="#contact" data-lm="Destinace – termín">Chci tuhle nabídku</a></div></div></div>
   -->
-  <div class="lmgrid reveal" id="lm-list"></div>
+  <div class="lmgrid reveal" id="lm-list"><div class="lmcard"><img src="lm-kapverdy.jpg" alt="Last minute Kapverdy, Royal Horizon Ponta Sino, odlet 1. prosince, 24 990 Kč na osobu" loading="lazy"/><div class="lmcard-b"><div class="lmcard-btn"><a href="#contact" data-lm="Kapverdy – Royal Horizon Ponta Sino, 1. nebo 4. 12., 7 nocí">Chci tuhle nabídku</a></div></div></div></div>
 
   <div class="hlidac reveal" id="hlidac">
     <div>
