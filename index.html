@@ -25,32 +25,27 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .nphone:hover .nphone-i{background:var(--rd)}
 
 /* HERO */
-#home{min-height:100vh;background:var(--blue);position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;padding-top:76px}
-.hblob{position:absolute;pointer-events:none;border-radius:50%}
-.hblob.b1{top:-180px;right:-180px;width:720px;height:720px;background:radial-gradient(circle,rgba(217,77,61,.18) 0%,transparent 65%)}
-.hblob.b2{bottom:-100px;left:20%;width:480px;height:480px;background:radial-gradient(circle,rgba(255,255,255,.04) 0%,transparent 65%)}
-.hleft{display:flex;flex-direction:column;justify-content:center;padding:5rem 3.5rem 5rem 5rem;position:relative;z-index:1;animation:fadeUp .9s .15s ease both}
-.eyebrow{display:inline-flex;align-items:center;gap:.8rem;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:1.6rem}
-.eyebrow::before{content:'';width:30px;height:2px;background:rgba(255,255,255,.5)}
-h1{font-family:'Anton',sans-serif;font-size:clamp(3rem,5.5vw,6rem);line-height:1.2;color:var(--white);margin-bottom:1.6rem;letter-spacing:.06em}
+#home{min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;padding:76px 5rem 0;background:var(--bd)}
+.hbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;animation:fadeIn 1.4s ease both}
+.hov{position:absolute;inset:0;background:linear-gradient(100deg,rgba(14,30,61,.88) 0%,rgba(23,47,94,.72) 38%,rgba(23,47,94,.18) 70%,rgba(23,47,94,.05) 100%)}
+.hwrap{position:relative;z-index:2;max-width:640px;padding:4rem 0;animation:fadeUp .9s .15s ease both}
+.eyebrow{display:inline-flex;align-items:center;gap:.8rem;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.8);margin-bottom:1.6rem}
+.eyebrow::before{content:'';width:30px;height:2px;background:var(--red)}
+h1{font-family:'Anton',sans-serif;font-size:clamp(2.8rem,5.6vw,5.6rem);line-height:1.12;color:var(--white);margin-bottom:1.5rem;letter-spacing:.05em}
 h1 .ac{color:var(--red)}
-.hsub{font-size:1rem;line-height:1.8;color:var(--mu);max-width:420px;margin-bottom:1.8rem}
-.hbadge{display:inline-flex;align-items:center;gap:.8rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);padding:.7rem 1.2rem;margin-bottom:2.4rem;max-width:420px}
-.hbadge p{font-size:.82rem;line-height:1.7;color:rgba(255,255,255,.95);letter-spacing:.06em}
-.hbadge strong{color:#fff;text-decoration:underline;text-underline-offset:2px}
-.hbtns{display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap}
-.btnr{background:var(--red);color:var(--white);padding:.9rem 2.6rem;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .15s;display:inline-block}
+.hsub{font-size:1.08rem;line-height:1.75;color:rgba(255,255,255,.88);max-width:470px;margin-bottom:2.2rem}
+.hbtns{display:flex;gap:1.4rem;align-items:center;flex-wrap:wrap;margin-bottom:1.8rem}
+.btnr{background:var(--red);color:var(--white);padding:1rem 2.6rem;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .15s;display:inline-block}
 .btnr:hover{background:var(--rd);transform:translateY(-2px)}
-.btng{color:rgba(255,255,255,.6);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .2s}
+.btng{color:rgba(255,255,255,.75);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .2s}
 .btng:hover{color:var(--white)}
 .btng::after{content:'→'}
-.hright{position:relative;z-index:1;animation:fadeIn 1.1s .35s ease both}
-.hright img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block}
-
-
-.hstat{position:absolute;bottom:3rem;left:-2.5rem;z-index:3;background:var(--white);padding:1.4rem 2rem;box-shadow:0 16px 56px rgba(0,0,0,.22)}
-.hstat-n{font-family:'Anton',sans-serif;font-size:2.8rem;color:var(--red);line-height:1}
-.hstat-l{font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);opacity:.6;margin-top:.35rem}
+.hfree{font-size:.85rem;line-height:1.6;color:rgba(255,255,255,.8);padding-left:1rem;border-left:2px solid var(--red);max-width:430px}
+.hfree strong{color:#fff;font-weight:500}
+.hperson{position:absolute;right:5rem;bottom:3rem;z-index:2;display:flex;align-items:center;gap:1rem;background:rgba(14,30,61,.55);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.18);padding:.8rem 1.4rem .8rem .8rem}
+.hperson img{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:50% 12%;border:2px solid rgba(255,255,255,.7)}
+.hperson b{display:block;font-size:.92rem;font-weight:500;color:#fff}
+.hperson span{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.65)}
 
 /* SLIDER */
 #slider{position:relative;width:100%;height:600px;overflow:hidden;background:var(--bd)}
@@ -259,11 +254,10 @@ footer a:hover{color:var(--red)}
 @media(max-width:960px){
   nav{padding:0 1.4rem}
   .nlinks{display:none}
-  #home{grid-template-columns:1fr}
-  .hleft{padding:5rem 1.5rem 3rem}
-  .hright{height:300px}
-  .hright::before,.hright::after{display:none}
-  .hstat{left:1rem;bottom:1.5rem}
+  #home{padding:76px 1.5rem 0;align-items:flex-end;min-height:auto}
+  .hov{background:linear-gradient(to top,rgba(14,30,61,.92) 0%,rgba(23,47,94,.7) 55%,rgba(23,47,94,.25) 100%)}
+  .hwrap{padding:8rem 0 9.5rem}
+  .hperson{left:1.5rem;right:auto;bottom:1.5rem}
   #slider{height:420px}
   .slide-ct{left:1.5rem;right:1.5rem;max-width:100%}
   .sdots{left:1.5rem;bottom:1.5rem}
@@ -338,26 +332,21 @@ footer a:hover{color:var(--red)}
 </nav>
 
 <section id="home">
-  <div class="hblob b1"></div>
-  <div class="hblob b2"></div>
-  <div class="hleft">
+  <img class="hbg" src="mallorca.jpg" alt="Port de Sóller, Mallorca"/>
+  <div class="hov"></div>
+  <div class="hwrap">
     <div class="eyebrow">Cestovní agentura · Blanka Slavíková</div>
-    <h1>VAŠE CESTA<br>ZAČÍNÁ<br><span class="ac">ZDE</span></h1>
-    <p class="hsub">Plánuji dovolené s osobním přístupem a srdcem. Každý výlet je pro mě závazek — ne jen rezervace.</p>
-    <div class="hbadge">
-      <p><strong>Moje služby jsou pro vás zdarma.</strong> Platí mě cestovní kancelář — vy nezaplatíte ani korunu navíc.</p>
-    </div>
+    <h1>DOVOLENÁ,<br>KTERÁ VÁM<br><span class="ac">SEDNE</span></h1>
+    <p class="hsub">Napište mi termín a rozpočet. Do 24 hodin dostanete tři hotely na výběr.</p>
     <div class="hbtns">
       <a class="btnr" href="#contact">Chci 3 hotely na výběr</a>
       <a class="btng" href="#why">Jak to funguje</a>
     </div>
+    <p class="hfree"><strong>Moje služby jsou pro vás zdarma.</strong> Platí mě cestovní kancelář, vy nezaplatíte ani korunu navíc.</p>
   </div>
-  <div class="hright">
-    <img src="hero.png" alt="CABS"/>
-    <div class="hstat">
-      <div class="hstat-n">24 h</div>
-      <div class="hstat-l">a máte 3 tipy na hotel</div>
-    </div>
+  <div class="hperson">
+    <img src="blanka.jpg" alt="Blanka Slavíková"/>
+    <div><b>Blanka Slavíková</b><span>Vaše cestovní poradkyně</span></div>
   </div>
 </section>
 
