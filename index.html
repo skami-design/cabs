@@ -913,7 +913,7 @@ document.addEventListener('click',function(e){
     }catch(err){
       btn.disabled=false;
       msg.className='hlidac-msg err';
-      msg.textContent='Něco se nepovedlo ('+(err&&err.message||'?')+'). Napište mi prosím na info-cabs@email.cz a přidám vás ručně.';
+      msg.textContent=/Neplatn/.test(err&&err.message||'')?'Tenhle e-mail se nepodařilo ověřit. Zkontrolujte prosím, jestli je napsaný správně.':'Něco se nepovedlo ('+(err&&err.message||'?')+'). Napište mi prosím na info-cabs@email.cz a přidám vás ručně.';
     }
   });
 })();
