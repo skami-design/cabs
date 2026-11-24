@@ -897,7 +897,7 @@ document.addEventListener('click',function(e){
     if(f.hp.value)return;
     btn.disabled=true;
     try{
-      const body='ecmw%5Bemail%5D='+encodeURIComponent(email)+'&updateExisting=false';
+      const body='ecmw[email]='+encodeURIComponent(email)+'&updateExisting=false';
       const j=await new Promise(function(resolve,reject){
         const x=new XMLHttpRequest();
         x.open('POST','https://cabs.ecomailapp.cz/public/subscribe/2/2bb287d15897fe2f9d89c882af9a3a8b?source=basic&ln=cs',true);
