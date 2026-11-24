@@ -21,6 +21,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .nlinks{display:flex;gap:2.4rem;list-style:none}
 .nlinks a{font-size:.78rem;letter-spacing:.13em;text-transform:uppercase;color:var(--mu);text-decoration:none;transition:color .2s}
 .nlinks a:hover{color:var(--white)}
+.nlinks a.nl-hl{color:#fff;background:var(--red);padding:.45rem .8rem}
+.nlinks a.nl-hl:hover{background:var(--rd)}
 .nphone{display:flex;align-items:center;gap:.7rem;color:var(--white);text-decoration:none;font-size:.9rem;font-weight:500}
 .nphone-i{width:36px;height:36px;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0;transition:background .2s}
 .nphone:hover .nphone-i{background:var(--rd)}
@@ -314,6 +316,7 @@ footer a:hover{color:var(--red)}
   nav.open .nlinks{display:flex}
   .nlinks li{border-bottom:1px solid rgba(255,255,255,.07)}
   .nlinks a{display:block;padding:1.05rem 1.6rem;font-size:.9rem;color:rgba(255,255,255,.88)}
+  .nlinks a.nl-hl{background:none;padding:1.05rem 1.6rem;color:#ff8a7c;font-weight:500}
   #home{padding:76px 1.5rem 0;align-items:flex-end;min-height:auto}
   .hov{background:linear-gradient(to top,rgba(14,30,61,.92) 0%,rgba(23,47,94,.7) 55%,rgba(23,47,94,.25) 100%)}
   .hwrap{padding:8rem 0 9.5rem}
@@ -383,6 +386,7 @@ footer a:hover{color:var(--red)}
     <li><a href="#about">O mně</a></li>
     <li><a href="#gallery">Destinace</a></li>
     <li><a href="#facebook">Nabídky</a></li>
+    <li><a href="#hlidac" class="nl-hl">Hlídač LM</a></li>
     <li><a href="#contact">Kontakt</a></li>
   </ul>
   <a href="tel:+420774344576" class="nphone">
