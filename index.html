@@ -897,13 +897,15 @@ document.addEventListener('click',function(e){
     if(f.hp.value)return;
     btn.disabled=true;
     try{
-      const body=new URLSearchParams();
-      body.append('ecmw[email]',email);
-      body.append('ecmw[custom_source]',document.referrer||location.href);
-      body.append('updateExisting','false');
-      const res=await fetch('https://cabs.ecomailapp.cz/public/subscribe/2/2bb287d15897fe2f9d89c882af9a3a8b?source=basic&ln=cs',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body.toString()});
-      let j={};try{j=await res.json()}catch(_){}
-      if(!res.ok||j.success===false)throw new Error(j.message||'');
+      const body='ecmw%5Bemail%5D='+encodeURIComponent(email)+'&updateExisting=false';
+      const j=await new Promise(function(resolve,reject){
+        const x=new XMLHttpRequest();
+        x.open('POST','https://cabs.ecomailapp.cz/public/subscribe/2/2bb287d15897fe2f9d89c882af9a3a8b?source=basic&ln=cs',true);
+        x.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+        x.onload=function(){let r={};try{r=JSON.parse(x.responseText)}catch(_){}console.log('Ecomail',x.status,x.responseText);if(x.status>=200&&x.status<300&&r.success!==false)resolve(r);else reject(new Error('HTTP '+x.status+' '+(r.message||x.responseText||'').slice(0,120)))};
+        x.onerror=function(){reject(new Error('síť/CORS'))};
+        x.send(body);
+      });
       f.reset();
       msg.className='hlidac-msg ok';
       msg.textContent=j.already_subscribed?'Tenhle e-mail už hlídá last minute, o nic nepřijdete.':'Děkuji, jste přihlášeni. Pokud vám přijde potvrzovací e-mail, klikněte v něm na odkaz.';
@@ -911,7 +913,7 @@ document.addEventListener('click',function(e){
     }catch(err){
       btn.disabled=false;
       msg.className='hlidac-msg err';
-      msg.textContent='Něco se nepovedlo. Napište mi prosím na info-cabs@email.cz a přidám vás ručně.';
+      msg.textContent='Něco se nepovedlo ('+(err&&err.message||'?')+'). Napište mi prosím na info-cabs@email.cz a přidám vás ručně.';
     }
   });
 })();
