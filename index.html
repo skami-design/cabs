@@ -737,7 +737,7 @@ footer a:hover{color:var(--red)}
             style="width:18px;height:18px;flex-shrink:0;margin-top:2px;accent-color:var(--red);cursor:pointer"/>
           <label for="gdpr-consent" style="font-size:.78rem;color:rgba(255,255,255,.6);line-height:1.6;cursor:pointer;text-transform:none;letter-spacing:0">
             Souhlasím se zpracováním osobních údajů za účelem vyřízení mé poptávky.
-            <a href="#gdpr" onclick="document.getElementById('gdpr-modal').style.display='flex';return false;"
+            <a href="gdpr.html" target="_blank"
               style="color:var(--red);text-decoration:underline">Zásady ochrany osobních údajů.</a>
           </label>
         </div>
@@ -761,10 +761,12 @@ footer a:hover{color:var(--red)}
 </section>
 
 <footer>
-  <span>© 2026 CABS · Blanka Slavíková · <a href="mailto:info-cabs@email.cz">info-cabs@email.cz</a></span>
+  <span>© 2026 CABS · Blanka Slavíková · IČO 44399120 · Zaječice 207 · <a href="mailto:info-cabs@email.cz">info-cabs@email.cz</a></span>
   <div class="flinks">
     <a href="https://www.instagram.com/cestuj_s_blankou" target="_blank">Instagram</a>
     <a href="https://www.facebook.com/profile.php?id=61577892062099" target="_blank">Facebook</a>
+    <a href="vop.html">Obchodní podmínky</a>
+    <a href="gdpr.html">Ochrana údajů</a>
     <a href="#home">↑ Nahoru</a>
   </div>
 </footer>
@@ -908,7 +910,7 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 <div id="cookie-banner">
   <p class="cookie-text">
     Tento web používá cookies nezbytné pro jeho správné fungování. Kliknutím na "Přijmout" souhlasíte s jejich použitím.
-    Více informací v <a href="#gdpr">zásadách ochrany osobních údajů</a>.
+    Více informací v <a href="gdpr.html">zásadách ochrany osobních údajů</a>.
   </p>
   <div class="cookie-btns">
     <button class="cookie-accept" onclick="acceptCookies()">Přijmout</button>
@@ -917,22 +919,6 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </div>
 
 <!-- GDPR modal -->
-<div id="gdpr-modal" style="display:none;position:fixed;inset:0;z-index:998;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);align-items:center;justify-content:center">
-  <div style="background:var(--blue-dark);max-width:600px;width:90%;padding:2.5rem;position:relative;max-height:80vh;overflow-y:auto">
-    <button onclick="document.getElementById('gdpr-modal').style.display='none'" style="position:absolute;top:1rem;right:1rem;background:none;border:none;color:white;font-size:1.4rem;cursor:pointer;opacity:.6">✕</button>
-    <h3 style="font-family:'Oswald',sans-serif;font-weight:600;color:white;font-size:1.6rem;letter-spacing:.045em;margin-bottom:1.2rem">ZÁSADY OCHRANY<br>OSOBNÍCH ÚDAJŮ</h3>
-    <div style="font-size:.85rem;color:rgba(255,255,255,.75);line-height:1.8">
-      <p style="margin-bottom:1rem"><strong style="color:white">Správce osobních údajů:</strong><br>Blanka Slavíková, CABS Cestovní agentura<br>E-mail: info-cabs@email.cz | Tel: +420 774 344 576</p>
-      <p style="margin-bottom:1rem"><strong style="color:white">Jaké údaje zpracováváme:</strong><br>Při odeslání kontaktního formuláře zpracováváme vaše jméno, e-mail, telefon a obsah zprávy. Tyto údaje jsou použity výhradně pro účely odpovědi na vaši poptávku.</p>
-      <p style="margin-bottom:1rem"><strong style="color:white">Hlídač last minute (e-mailing):</strong><br>Pokud se přihlásíte k odběru, použiji váš e-mail k zasílání last minute nabídek. Souhlas je dobrovolný a můžete ho kdykoli odvolat odkazem v každém e-mailu nebo zprávou na info-cabs@email.cz. E-mail uchovávám do odvolání souhlasu.</p>
-      <p style="margin-bottom:1rem"><strong style="color:white">Jak dlouho údaje uchováváme:</strong><br>Osobní údaje uchováváme po dobu nezbytně nutnou pro vyřízení vaší poptávky, nejdéle 2 roky.</p>
-      <p style="margin-bottom:1rem"><strong style="color:white">Cookies:</strong><br>Tento web používá pouze technické cookies nezbytné pro správné fungování stránek a Facebook plugin pro zobrazení příspěvků z naší stránky.</p>
-      <p style="margin-bottom:1rem"><strong style="color:white">Vaše práva:</strong><br>Máte právo na přístup k údajům, jejich opravu, výmaz nebo omezení zpracování. Žádost zašlete na info-cabs@email.cz.</p>
-      <p><strong style="color:white">Platnost:</strong> Tyto zásady jsou platné od 1. 7. 2025.</p>
-    </div>
-  </div>
-</div>
-
 <script>
 function acceptCookies() {
   localStorage.setItem('cookies_accepted', 'true');
@@ -946,11 +932,6 @@ function declineCookies() {
 if (localStorage.getItem('cookies_accepted')) {
   document.getElementById('cookie-banner').style.display = 'none';
 }
-// GDPR link
-document.querySelector('a[href="#gdpr"]').addEventListener('click', function(e) {
-  e.preventDefault();
-  document.getElementById('gdpr-modal').style.display = 'flex';
-});
 </script>
 <script>
 (function (w,d,s,o,f,js,fjs) {
