@@ -272,14 +272,22 @@ h1 .ac{color:var(--red)}
 .nlinks a,.nphone{white-space:nowrap}
 @media(max-width:1180px){.nlinks{gap:1.3rem}.nlinks a{font-size:.68rem;letter-spacing:.08em}.nphone span{display:none}}
 
-/* Ecomail formulář v Hlídači: barvy CABS */
-.hlidac-form{min-width:0}
-.hlidac-form *{font-family:'Outfit',sans-serif!important;box-sizing:border-box}
-.hlidac-form input[type=text],.hlidac-form input[type=email]{width:100%;background:rgba(255,255,255,.1)!important;border:1px solid rgba(255,255,255,.25)!important;color:#fff!important;padding:.85rem 1rem!important;border-radius:0!important;font-size:.87rem!important}
-.hlidac-form input::placeholder{color:rgba(255,255,255,.5)!important}
-.hlidac-form label,.hlidac-form p,.hlidac-form span,.hlidac-form div{color:rgba(255,255,255,.8)}
-.hlidac-form a{color:var(--red)!important}
-.hlidac-form button,.hlidac-form input[type=submit]{background:var(--red)!important;color:#fff!important;border:none!important;border-radius:0!important;padding:.9rem 2rem!important;font-size:.82rem!important;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+/* Ecomail formulář v Hlídači: sladění s CABS (stejný postup jako na Značce od základů) */
+.ecm-form{min-height:60px}
+.ecm-form *{font-family:'Outfit',sans-serif!important;box-sizing:border-box;background-color:transparent!important;box-shadow:none!important;text-align:left!important}
+.ecm-form form,.ecm-form div{border:0!important;padding-left:0!important;padding-right:0!important;max-width:none!important;margin-left:0!important;margin-right:0!important;min-height:0!important}
+.ecm-form div{padding-top:0!important;padding-bottom:0!important}
+.ecm-form h1,.ecm-form h2,.ecm-form h3,.ecm-form h4,.ecm-form .ecm-hide{display:none!important}
+.ecm-form label,.ecm-form p,.ecm-form span{color:#fff!important;font-size:14px!important;font-weight:500!important}
+.ecm-form input[type=text],.ecm-form input[type=email]{width:100%!important;font-size:16px!important;padding:14px 16px!important;border:1.5px solid transparent!important;border-radius:0!important;background-color:#fff!important;color:#172f5e!important;margin:6px 0 14px!important;height:auto!important}
+.ecm-form input::placeholder{color:#7d8aa6!important}
+.ecm-form input:focus{outline:none!important;border-color:var(--red)!important}
+.ecm-form button,.ecm-form input[type=submit]{background-color:var(--red)!important;color:#fff!important;border:0!important;border-radius:0!important;padding:17px 28px!important;font-weight:500!important;font-size:15px!important;letter-spacing:.12em!important;text-transform:uppercase!important;cursor:pointer!important;width:100%!important;height:auto!important;text-align:center!important;white-space:normal!important;line-height:1.3!important}
+.ecm-form button:hover,.ecm-form input[type=submit]:hover{background-color:var(--rd)!important}
+.ecm-form a{color:#fff!important;font-weight:400!important;font-size:13px!important;text-decoration:underline!important}
+.lm-done{background:rgba(255,255,255,.1);border-left:3px solid #4caf50;padding:22px 24px}
+.lm-done .t{font-family:'Oswald',sans-serif!important;font-size:1.5rem;letter-spacing:.04em;line-height:1.25;color:#fff!important;margin-bottom:8px}
+.lm-done p{font-weight:400!important;font-size:15px!important;line-height:1.6;color:rgba(255,255,255,.85)!important}
 
 /* FOOTER */
 footer{background:#0e1e3d;color:rgba(255,255,255,.3);padding:2.2rem 5rem;display:flex;align-items:center;justify-content:space-between;font-size:.76rem;letter-spacing:.05em}
@@ -631,7 +639,8 @@ footer a:hover{color:var(--red)}
       <p>Pošlu vám nové last minute dřív než na sociální sítě. Žádné spamování, jen výběr, který stojí za pozornost. Odhlásit se můžete kdykoli.</p>
     </div>
     <div class="hlidac-form">
-      <div id="f-1-43c2cd496486bcc27217c3e790fb4088"></div>
+      <div id="f-1-43c2cd496486bcc27217c3e790fb4088" class="ecm-form"></div>
+      <small style="display:block;margin-top:.4rem;font-size:.78rem;color:rgba(255,255,255,.65);line-height:1.5">Zasílám jen výběr last minute, který stojí za pozornost. Odhlásit se můžete jedním klikem.</small>
     </div>
   </div>
 
@@ -939,6 +948,38 @@ if (localStorage.getItem('cookies_accepted')) {
   js=d.createElement(s),fjs=d.getElementsByTagName(s)[0];
   js.id='1-43c2cd496486bcc27217c3e790fb4088';js.dataset.a='cabs';js.src=f;js.async=1;fjs.parentNode.insertBefore(js,fjs);
 }(window,document,'script','ecmwidget','https://d70shl7vidtft.cloudfront.net/widget.js'));
+</script>
+<script>
+/* Ecomail formulář: vlastní texty (widget se načte až na živém webu) */
+(function(){
+  const box=document.getElementById('f-1-43c2cd496486bcc27217c3e790fb4088'); if(!box) return;
+  const BTN='Chci hlídat last minute';
+  const done=()=>{
+    if(box.querySelector('.lm-done')) return;
+    box.querySelectorAll(':scope > *').forEach(el=>el.classList.add('ecm-hide'));
+    const d=document.createElement('div'); d.className='lm-done';
+    d.innerHTML='<div class="t">Děkuji, jste přihlášeni!</div><p>Nové last minute vám pošlu dřív než na sociální sítě. Pokud vám přijde potvrzovací e-mail, klikněte v něm prosím na odkaz. Kdyby nedorazil, mrkněte do hromadné pošty.</p>';
+    box.appendChild(d);
+  };
+  const fix=()=>{
+    const em=box.querySelector('input[type=email]'); const hasForm=!!(em&&em.offsetParent!==null);
+    const hadForm=box.dataset.seen==='1';
+    if(hasForm) box.dataset.seen='1';
+    if(hadForm&&!hasForm&&box.textContent.trim()){done();return;}
+    if(!hasForm) return;
+    box.querySelectorAll('*').forEach(el=>{
+      if(el.children.length) return;
+      const t=(el.textContent||'').trim();
+      if(/speciální výhody|odběratele newsletteru|Povinné pole/i.test(t)) el.classList.add('ecm-hide');
+      if(/^E-mail\s*\*$/i.test(t)) el.textContent='E-mail';
+    });
+    box.querySelectorAll('a').forEach(a=>{ if(/zpracování/i.test(a.textContent)){ a.href='gdpr.html'; a.target='_blank'; a.textContent='Zásady ochrany osobních údajů'; } });
+    box.querySelectorAll('input[type=email]').forEach(i=>i.placeholder='Váš e-mail');
+    box.querySelectorAll('button, input[type=submit]').forEach(b=>{ if(b.tagName==='INPUT'){ if(b.value!==BTN) b.value=BTN; } else if(b.textContent!==BTN) b.textContent=BTN; });
+  };
+  let busy=false; const run=()=>{ if(busy) return; busy=true; try{fix();}finally{ setTimeout(()=>busy=false,0); } };
+  new MutationObserver(run).observe(box,{childList:true,subtree:true,attributes:true,attributeFilter:['style','class']}); run();
+})();
 </script>
 </body>
 </html>
