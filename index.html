@@ -272,6 +272,15 @@ h1 .ac{color:var(--red)}
 .nlinks a,.nphone{white-space:nowrap}
 @media(max-width:1180px){.nlinks{gap:1.3rem}.nlinks a{font-size:.68rem;letter-spacing:.08em}.nphone span{display:none}}
 
+/* Ecomail formulář v Hlídači: barvy CABS */
+.hlidac-form{min-width:0}
+.hlidac-form *{font-family:'Outfit',sans-serif!important;box-sizing:border-box}
+.hlidac-form input[type=text],.hlidac-form input[type=email]{width:100%;background:rgba(255,255,255,.1)!important;border:1px solid rgba(255,255,255,.25)!important;color:#fff!important;padding:.85rem 1rem!important;border-radius:0!important;font-size:.87rem!important}
+.hlidac-form input::placeholder{color:rgba(255,255,255,.5)!important}
+.hlidac-form label,.hlidac-form p,.hlidac-form span,.hlidac-form div{color:rgba(255,255,255,.8)}
+.hlidac-form a{color:var(--red)!important}
+.hlidac-form button,.hlidac-form input[type=submit]{background:var(--red)!important;color:#fff!important;border:none!important;border-radius:0!important;padding:.9rem 2rem!important;font-size:.82rem!important;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+
 /* FOOTER */
 footer{background:#0e1e3d;color:rgba(255,255,255,.3);padding:2.2rem 5rem;display:flex;align-items:center;justify-content:space-between;font-size:.76rem;letter-spacing:.05em}
 footer img{height:28px;filter:brightness(0) invert(1);opacity:.4}
@@ -621,20 +630,9 @@ footer a:hover{color:var(--red)}
       <h3>HLÍDAČ LAST MINUTE</h3>
       <p>Pošlu vám nové last minute dřív než na sociální sítě. Žádné spamování, jen výběr, který stojí za pozornost. Odhlásit se můžete kdykoli.</p>
     </div>
-    <form class="ajaxform" action="https://formspree.io/f/mvznaygy" method="POST">
-      <input type="hidden" name="typ" value="Hlídač last minute"/>
-      <input type="hidden" name="zdroj_stranky" class="js-zdroj"/>
-      <div class="hlidac-row">
-        <input type="email" name="email" placeholder="Váš e-mail" required/>
-        <button type="submit" class="btnsub">Chci hlídat</button>
-      </div>
-      <div class="fg" style="flex-direction:row;align-items:flex-start;gap:.8rem">
-        <input type="checkbox" id="hl-consent" name="souhlas_newsletter" required style="width:18px;height:18px;flex-shrink:0;margin-top:2px;accent-color:var(--red);cursor:pointer"/>
-        <label for="hl-consent" style="font-size:.78rem;color:rgba(255,255,255,.65);line-height:1.6;cursor:pointer;text-transform:none;letter-spacing:0">Souhlasím se zasíláním last minute nabídek na e-mail.
-          <a href="#gdpr" onclick="document.getElementById('gdpr-modal').style.display='flex';return false;" style="color:var(--red);text-decoration:underline">Zásady ochrany osobních údajů.</a></label>
-      </div>
-      <div class="hlidac-ok">✓ Hotovo, nové last minute vám budu posílat na e-mail.</div>
-    </form>
+    <div class="hlidac-form">
+      <div id="f-1-43c2cd496486bcc27217c3e790fb4088"></div>
+    </div>
   </div>
 
   <div class="reveal" style="display:flex;flex-wrap:wrap;gap:2rem;align-items:flex-start">
@@ -953,6 +951,13 @@ document.querySelector('a[href="#gdpr"]').addEventListener('click', function(e) 
   e.preventDefault();
   document.getElementById('gdpr-modal').style.display = 'flex';
 });
+</script>
+<script>
+(function (w,d,s,o,f,js,fjs) {
+  w['ecm-widget']=o;w[o]=w[o]||function(){(w[o].q=w[o].q||[]).push(arguments)};
+  js=d.createElement(s),fjs=d.getElementsByTagName(s)[0];
+  js.id='1-43c2cd496486bcc27217c3e790fb4088';js.dataset.a='cabs';js.src=f;js.async=1;fjs.parentNode.insertBefore(js,fjs);
+}(window,document,'script','ecmwidget','https://d70shl7vidtft.cloudfront.net/widget.js'));
 </script>
 </body>
 </html>
